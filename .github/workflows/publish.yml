@@ -24,5 +24,5 @@ jobs:
         base_href: https://momentum-design.github.io/   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
         deploy_branch: gh-pages # The branch the action should deploy to.
         deploy_folder: ./ #target folder
-        angular_dist_build_folder: ./dist # The folder where your project
+        angular_dist_build_folder: dist # The folder where your project
 
