@@ -17,11 +17,12 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build angular
-      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
+      uses: ArthusLiang/angular-deploy-gh-pages-actions
       with:
         github_access_token: ${{ secrets.ACTION_TOKEN }} 
         # build_configuration: staging # The build environment for the app. please look configurations in your angular.json
         base_href: https://momentum-design.github.io/   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
         deploy_branch: gh-pages # The branch the action should deploy to.
-        angular_dist_build_folder: ./ # The folder where your project
+        deploy_folder: ./ #target folder
+        angular_dist_build_folder: ./dist # The folder where your project
 
