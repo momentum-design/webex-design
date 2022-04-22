@@ -1,0 +1,5 @@
+<div [ngClass]="className">
+    <p class='primary' *ngIf="primary">{{primary}}</p>
+    <p class='secondary'  *ngIf="secondary" [ngClass]="{'fisrt-line': !primary}">{{secondary}}</p>
+    <a class="link" *ngIf="url" [ngClass]="{'fisrt-line': !primary && !secondary}"  [routerLink]="url" >{{link}}<i></i></a>
+</div>

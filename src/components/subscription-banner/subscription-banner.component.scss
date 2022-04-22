@@ -1,0 +1,85 @@
+@use 'colors.scss' as colors;
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(100%, func.rem-calc(747));
+    position: relative;
+
+    overflow: hidden;
+    margin-top: func.rem-calc(82);
+}
+
+.con {
+    @include mixins.block(func.rem-calc(428), auto);
+    @include mixins.position(func.rem-calc(180), 50%);
+    
+    transform: translate(-50%, 0);
+
+    input {
+        @include mixins.block(100%, func.rem-calc(56));
+
+        margin-top: func.rem-calc(50);
+        border:1px solid white;
+        border-radius: func.rem-calc(28);
+        background: transparent;
+        font-size: func.rem-calc(15);
+        text-indent: func.rem-calc(28); 
+    }
+
+    input::placeholder {
+        color: white;
+    }
+
+    a {
+        @include mixins.block(func.rem-calc(110), func.rem-calc(56));
+        @include mixins.position4(auto, - func.rem-calc(130) , func.rem-calc(1));
+
+        color: colors.$page-background;
+        border:1px solid white;
+        border-radius: func.rem-calc(28); 
+        text-indent: func.rem-calc(28);
+        background: white;
+        cursor: pointer;
+
+        &::after {
+            @include mixins.block(func.rem-calc(22), func.rem-calc(56), inline-block);
+
+            content: '';
+            position: relative;
+            top: func.rem-calc(-2);
+            vertical-align: top;
+            background: url('../../assets/icons/arrow-small.svg') no-repeat center;
+        }
+    }
+}
+
+svg {
+    @include mixins.block(auto, 100%);
+    @include mixins.position(0, 50%);
+    
+    transform: translate(-50%, 0);
+}
+
+@media screen and (max-width: settings.$response-width-small){
+    :host {
+        height: func.rem-calc(430);
+        margin-top: func.rem-calc(110);
+    }
+    
+    .con {
+        @include mixins.block(func.rem-calc(428), auto);
+        @include mixins.position(0, settings.$page-padding-small);
+        
+        transform: translate(0, 0);
+
+        input {
+            width: func.rem-calc(320) ;
+        }
+    
+        a {
+            right: func.rem-calc(-30);
+        }
+    }
+}

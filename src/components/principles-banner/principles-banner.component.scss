@@ -1,0 +1,41 @@
+@use 'colors.scss' as colors;
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(100%, func.rem-calc(630));
+
+    position: relative;
+    margin-top: func.rem-calc(188);
+    text-align: center;
+    background-color: colors.$section-background;
+    overflow: hidden;
+}
+
+svg {
+    @include mixins.block(func.rem-calc(819), func.rem-calc(722));
+    @include mixins.position(0, 50%);
+
+    transform: translate(-50%, - func.rem-calc(60));
+}
+
+.title {
+    @include mixins.block(func.rem-calc(360), func.rem-calc(190));
+    @include mixins.position(50%, 50%);
+
+    transform: translate(-50%,-50%);
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+
+    :host {
+        margin-top: func.rem-calc(120);
+    }
+    
+    svg {
+        @include mixins.block(func.rem-calc(628), func.rem-calc(555));
+
+        transform: translate(-50%, func.rem-calc(36));
+    }
+}

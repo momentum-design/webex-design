@@ -1,0 +1,26 @@
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(100%, func.rem-calc(570));
+    position: relative;
+    margin-top: func.rem-calc(25);
+    text-align: center;
+    overflow: hidden;
+
+    svg {
+        @include mixins.block(auto, 154%);
+        @include mixins.position(0,50%);
+        transform: translate(-50%,-17%);
+    }
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+
+    :host {
+        height: func.rem-calc(312);
+        margin-top: func.rem-calc(72);
+    }
+
+}

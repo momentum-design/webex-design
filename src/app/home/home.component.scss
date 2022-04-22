@@ -1,0 +1,23 @@
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(100%, auto);
+
+    opacity: 0;
+}
+
+.banner-manifesto {
+    width: func.rem-calc(550) ;
+    margin: func.rem-calc(98) 0 0 settings.$page-padding-large;
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+
+    .banner-manifesto {
+        width: func.rem-calc(350);
+        margin: func.rem-calc(38) 0 0 settings.$page-padding-small;
+    }
+
+}

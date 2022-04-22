@@ -1,0 +1,6 @@
+{
+    "md": {
+        "script": "markdown",
+        "output": "src/"
+    }
+}

@@ -1,0 +1,118 @@
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(func.rem-calc(1312), auto);
+
+    position: relative;
+    margin: func.rem-calc(128) auto 0 auto;
+}
+
+.title {
+    width: func.rem-calc(220);
+}
+
+.link {
+    @include mixins.block(func.rem-calc(245), auto);
+    @include mixins.position4(0, 0);
+
+    text-align: right;
+}
+
+.cards {
+    @include mixins.block(func.rem-calc(424), func.rem-calc(270), flex);
+    margin-top: func.rem-calc(103);
+    text-indent: func.rem-calc(48);
+
+    .card {
+        @include mixins.block(func.rem-calc(424), func.rem-calc(269));
+
+        position: relative;
+        flex: 1;
+        border-radius: func.rem-calc(40);
+        border:#707070 1px solid;
+        margin-left: func.rem-calc(20);
+        transform: translateY(100px);
+        
+        span {
+            @include mixins.block(func.rem-calc(424), func.rem-calc(134));
+
+            font-size: func.rem-calc(35);
+        }
+
+        a {
+            @include mixins.block(func.rem-calc(424), func.rem-calc(56));
+
+            position: relative;
+            margin-top: func.rem-calc(32);
+            cursor: pointer;
+
+            &::after {
+                @include mixins.block(func.rem-calc(56), func.rem-calc(56));
+                @include mixins.position4(0, func.rem-calc(48));
+
+                background: url('../../assets/icons/arrow-more.svg') no-repeat center;
+                content: '';
+            }
+        }
+    }
+
+    .card:first-child {
+        margin-left: 0;
+    }
+
+}
+
+
+@media screen and (max-width: settings.$response-width-small) {
+
+    :host {
+        width: func.rem-calc(480);
+        margin-top:func.rem-calc(110);
+    }
+        
+    .link {
+        @include mixins.block(func.rem-calc(245), auto);
+    
+        text-align: right;
+    }
+    
+    .cards {
+        @include mixins.block(func.rem-calc(480), auto);
+        margin-top: func.rem-calc(36);
+        text-indent: 28;
+    
+        .card {
+            @include mixins.block(func.rem-calc(480), func.rem-calc(80));
+    
+            border-radius: func.rem-calc(40);
+            border:#707070 1px solid;
+            margin-left: 0;
+            margin-top: func.rem-calc(20);
+            
+            span {
+                @include mixins.block(func.rem-calc(424), func.rem-calc(80));
+    
+                font-size: func.rem-calc(24);
+            }
+    
+            a {
+                @include mixins.block(func.rem-calc(140), func.rem-calc(80));
+                @include mixins.position4(0, func.rem-calc(32));
+                font-size: func.rem-calc(15);
+                margin-top: 0;
+                cursor: pointer;
+    
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    
+        .card:first-child {
+            margin-top: 0;
+        }
+    
+    }
+}

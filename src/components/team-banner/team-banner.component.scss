@@ -1,0 +1,79 @@
+@use 'colors.scss' as colors;
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(func.rem-calc(980), func.rem-calc(710));
+    
+    position: relative;
+    margin: func.rem-calc(130) auto 0 auto;
+}
+
+.title {
+    width: func.rem-calc(200);
+}
+
+.list {
+    @include mixins.block(func.rem-calc(646), auto);
+    @include mixins.position4(0, 0);
+
+    a {
+        @include mixins.block(func.rem-calc(646), func.rem-calc(171));
+        position: relative;
+        overflow: hidden;
+
+        font-size: func.rem-calc(100);
+        border-bottom:1px solid rgba(255,255,255,0.2);
+        cursor: pointer;
+
+        i {
+            @include mixins.block(120%, 100%);
+            @include mixins.position(0%, -20%);
+
+            background-color: colors.$page-background;
+        }
+    }
+}
+
+.link {
+    @include mixins.position4(auto, auto, 0, 0);
+
+    width: func.rem-calc(200);
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+
+    :host {
+        @include mixins.block(func.rem-calc(500), 740);
+
+        position: relative;
+        margin: func.rem-calc(120) 0 0 settings.$page-padding-small;
+    }
+
+    .title {
+        width: func.rem-calc(406);
+    }
+    
+    .list {
+        position: static;
+        width: func.rem-calc(480);
+        margin-top: func.rem-calc(56);
+    
+        a {
+            @include mixins.block(func.rem-calc(480), func.rem-calc(124));
+    
+            font-size: func.rem-calc(80);
+            border-bottom:1px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+    
+    }
+
+    .link {
+        width: func.rem-calc(406);
+        position: static;
+        margin-top: func.rem-calc(50);
+    }
+
+}
