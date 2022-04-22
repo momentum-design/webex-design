@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build angular
-      uses: ArthusLiang/angular-deploy-gh-pages-actions
+      uses: ArthusLiang/angular-deploy-gh-pages-actions@master
       with:
         github_access_token: ${{ secrets.ACTION_TOKEN }} 
         # build_configuration: staging # The build environment for the app. please look configurations in your angular.json
