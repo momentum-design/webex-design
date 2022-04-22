@@ -1,0 +1,44 @@
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(100%, auto);
+}
+
+.con {
+    @include mixins.block(func.rem-calc(880), auto);
+    margin:0 auto;
+
+    webex-description {
+        margin-top: func.rem-calc(100) ;
+    }
+
+    .banner {
+        @include mixins.block(func.rem-calc(523), func.rem-calc(476));
+        margin:func.rem-calc(100) auto;
+
+        text-align: center;
+        font-size: func.rem-calc(144);
+        background: url('../../assets/other/manifesto.svg') no-repeat center;
+        background-size: contain;
+    }
+}
+
+@media screen and (max-width: settings.$response-width-middle) {
+
+    .con {
+        @include mixins.block(80%, auto);
+        min-width: func.rem-calc(460);
+    
+        webex-description {
+            margin-top: func.rem-calc(40) ;
+        }
+    
+        .banner {
+            @include mixins.block(100%, func.rem-calc(283));
+            font-size: func.rem-calc(80);
+        }
+    }
+
+}
