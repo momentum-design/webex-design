@@ -1,0 +1,30 @@
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(100%, 100%, flex);
+    @include mixins.position(100%, 100%, flex);
+
+    margin-top: func.rem-calc(25);
+    text-align: center;
+    overflow: hidden;   
+}
+
+.slides-bar {
+    @include mixins.position(100%, 100%, fix);
+
+    text-align: center;
+
+    a {
+        @include mixins.position(auto, 32px, block);
+    }
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+
+    .slides-bar {
+
+    }
+
+}
