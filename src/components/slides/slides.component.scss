@@ -1,29 +1,72 @@
 @use 'functions.scss' as func;
 @use 'mixins.scss' as mixins;
 @use 'settings.scss' as settings;
+@use 'colors.scss' as colors;
 
 :host {
-    @include mixins.block(100%, 100%, flex);
-    @include mixins.position(100%, 100%, flex);
+    @include mixins.block(100%, 100%, block);
 
     margin-top: func.rem-calc(25);
     text-align: center;
     overflow: hidden;   
 }
 
-.slides-bar {
-    @include mixins.position(100%, 100%, fix);
+.slides-nav {
+
+
+    @include mixins.block(auto, 32px, block);
+    @include mixins.position(0, 0, fix);
+
 
     text-align: center;
 
     a {
-        @include mixins.position(auto, 32px, block);
+        @include mixins.block(auto, 32px, block);
+
+        color: colors.$font-3rd;
+        font-size: 16px;
+        vertical-align: middle;
+        margin:func.rem-calc(40) 0 0 0;
+
+        span {
+            @include mixins.block(auto, 32px, inline-block);
+        }
+
+        .slides-navs-item-index {
+            @include mixins.block(32px, 32px, inline-block);
+        }
+
     }
+
+    .previous {
+        color: $font-primary;
+    }
+
+}
+
+.slides-page {
+
+    display: block;
 }
 
 @media screen and (max-width: settings.$response-width-small) {
 
-    .slides-bar {
+    .slides-nav {
+
+        .current {
+            .slides-navs-item-index {
+                border: 1px solid colors.$font-3rd;
+            }
+        }
+
+        a {
+            display: inline-block;
+            margin:0 0 0 0;
+
+            .slides-navs-item-title {
+                display: none;
+            }
+        }
 
     }
 

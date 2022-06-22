@@ -1,13 +1,10 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild, ViewContainerRef, AfterViewInit, ViewChildren } from '@angular/core';
 import { IScrollMotion, IScrollMotionConfig } from '@types';
-import { ScrollMotionHelper } from '../tools';
+import { DomHelper, ScrollMotionHelper } from '../tools';
 import { SlidesPageComponent } from './slides-page/slides-page';
+import { SlidesNavComponent } from './slides-nav/slides-nav';
 import mframe from 'mframe';
-
-type navItem = {
-    title:string;
-    color:string;
-};
+import { __read } from 'tslib';
 
 @Component({
     selector: 'webex-slides',
@@ -17,8 +14,7 @@ type navItem = {
 })
 export class SlidesComponent implements AfterViewInit {
 
-    navs: navItem[]=[];
-
+    @ViewChild('webex-slides-nav') navs: SlidesNavComponent;
     @ViewChildren('webex-slides-page') pages: SlidesPageComponent[];
 
     @HostListener('window:scroll', ['$event']) onScroll(e: Event): void {
@@ -34,19 +30,41 @@ export class SlidesComponent implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.navs = this.pages.map((page)=>{
+        this.navs.navs = this.pages.map((page,index)=>{
+            page.index = index;
             return {
                 title: page.title,
-                color: page.color
+                color: page.color,
+                index: index
             };
         });
     }
 
     checkScroll() {
-        //ScrollMotionHelper.checkScroll(this);
+        if(this.pages) {
+            const y = DomHelper.scrollTop();
+            let _current = 0;
+            this.pages.forEach((page,index)=>{
+                if(y>=page.range.start) {
+                    _current = index;
+                }
+            });
+            this.navs.current = _current;
+        }
+    }
+
+    scrollTo(index:number) {
+        if(this.pages && this.pages[index]) {
+            DomHelper.scrollTop(this.pages[index].scrollTop);
+        }
     }
 
     initMotion(startPlus:number=0, endPlus:number=0) {
-
+        if(this.pages) {
+            this.pages.forEach((page)=>{
+                page.initRange();
+            });
+            this.checkScroll();
+        }
     }
 }
