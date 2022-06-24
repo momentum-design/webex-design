@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import {
+   StoriesBannerComponent
+} from '@lib';
+import mframe from 'mframe';
+
 
 @Component({
    templateUrl: './stories.component.html',
@@ -7,4 +12,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class StoriesComponent {
 
+   @ViewChild(StoriesBannerComponent) stories: StoriesBannerComponent;
+
+
+   ngAfterViewInit() {
+      Promise.resolve().then(()=>{
+         this.stories.initMotion();
+      });
+   }
 }

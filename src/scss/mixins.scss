@@ -26,3 +26,14 @@
         width: $width;
     }
 }
+
+@mixin clear() {
+    &::after {
+        @include block(0, 0, block);
+
+        content: '';
+        clear: both;
+        zoom: 1;
+        overflow: hidden;
+    }
+}

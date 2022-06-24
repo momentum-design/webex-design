@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild, ViewContainerRef, AfterViewInit, ViewChildren } from '@angular/core';
-import { IScrollMotion, IScrollMotionConfig } from '@types';
-import { DomHelper, ScrollMotionHelper } from '../tools';
-import { SlidesPageComponent } from './slides-page/slides-page';
-import { SlidesNavComponent } from './slides-nav/slides-nav';
-import mframe from 'mframe';
-import { __read } from 'tslib';
+import { ChangeDetectionStrategy, Component, 
+    HostListener, ViewChild, AfterViewInit, 
+    QueryList, ContentChildren, ChangeDetectorRef } from '@angular/core';
+import { DomHelper } from '../tools';
+import { SlidesPageComponent } from './slides-page/slides-page.component';
+import { SlidesNavComponent } from './slides-nav/slides-nav.component';
 
 @Component({
     selector: 'webex-slides',
@@ -14,8 +13,8 @@ import { __read } from 'tslib';
 })
 export class SlidesComponent implements AfterViewInit {
 
-    @ViewChild('webex-slides-nav') navs: SlidesNavComponent;
-    @ViewChildren('webex-slides-page') pages: SlidesPageComponent[];
+    @ViewChild(SlidesNavComponent) navs: SlidesNavComponent;
+    @ContentChildren(SlidesPageComponent) pages:  QueryList<SlidesPageComponent>;
 
     @HostListener('window:scroll', ['$event']) onScroll(e: Event): void {
         this.checkScroll();
@@ -25,18 +24,19 @@ export class SlidesComponent implements AfterViewInit {
         this.initMotion();
     }
 
-    constructor(private viewContainerRef: ViewContainerRef) {
-
-    }
+    constructor() {}
 
     ngAfterViewInit() {
-        this.navs.navs = this.pages.map((page,index)=>{
-            page.index = index;
-            return {
-                title: page.title,
-                color: page.color,
-                index: index
-            };
+        Promise.resolve().then(()=>{
+            this.navs.update(this.pages.map((page,index)=>{
+                page.index = index;
+                return {
+                    title: page.title,
+                    color: page.color,
+                    index: index
+                };
+            }));
+            this.initMotion();
         });
     }
 
@@ -45,18 +45,20 @@ export class SlidesComponent implements AfterViewInit {
             const y = DomHelper.scrollTop();
             let _current = 0;
             this.pages.forEach((page,index)=>{
-                if(y>=page.range.start) {
+                if(y>=page.scrollTop-1) {
                     _current = index;
                 }
             });
-            this.navs.current = _current;
+            this.navs.setCurrent(_current);
         }
     }
 
     scrollTo(index:number) {
-        if(this.pages && this.pages[index]) {
-            DomHelper.scrollTop(this.pages[index].scrollTop);
+        
+        if(this.pages && this.pages.get(index)) {
+            DomHelper.scrollTop(this.pages.get(index)?.scrollTop || 0);
         }
+        
     }
 
     initMotion(startPlus:number=0, endPlus:number=0) {

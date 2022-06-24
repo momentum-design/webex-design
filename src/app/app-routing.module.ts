@@ -18,10 +18,6 @@ const routes: Routes = [{
   loadChildren: () => import('./team/team.module').then(m => m.TeamModule),
   data: { navIndex: 5 }
 },{
-  path: 'roles',
-  loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule),
-  data: { navIndex: 6 }
-},{
   path: '',
   loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   data: { navIndex: 1 }

@@ -1,7 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import {
-   StoriesBannerComponent
+   RolesBannerComponent
 } from '@lib';
+
 @Component({
    templateUrl: './team.component.html',
    styleUrls: ['./team.component.scss'],
@@ -9,9 +10,11 @@ import {
 })
 export class TeamComponent implements AfterViewInit{
    
-   @ViewChild(StoriesBannerComponent) stories: StoriesBannerComponent;
+   @ViewChild(RolesBannerComponent) roles: RolesBannerComponent;
 
    ngAfterViewInit() {
-      this.stories.initMotion();
+      Promise.resolve().then(()=>{
+         this.roles.initMotion();
+      });
    }
 }

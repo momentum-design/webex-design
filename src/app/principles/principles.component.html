@@ -1,1 +1,12 @@
-principles
+<webex-slides>
+    <webex-slides-page *ngFor="let dataItem of data;let i=index;"
+        title="" 
+        [color]="dataItem.color">
+        <webex-principles-section 
+        [data]="dataItem"
+        [showNext]="i<data.length-1"
+        [index]="i"
+        (onClickNext)='next($event)'
+        ></webex-principles-section>
+    </webex-slides-page>
+</webex-slides>

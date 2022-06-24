@@ -1,0 +1,118 @@
+@use 'colors.scss' as colors;
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+@mixin text($font-size, $line-height, $margin-top:0) {
+    font-size: $font-size;
+    line-height: $line-height;
+    margin-top: $margin-top;
+    height: auto;
+}
+
+:host {
+    @include mixins.block(100%, auto, block);
+
+    margin: func.rem-calc(80) 0 0 0;
+    color: colors.$font-primary;
+    word-wrap:break-word;
+}
+
+.primary {
+    @include text(func.rem-calc(100), func.rem-calc(100));
+}
+
+.primaryContent {
+    @include text(func.rem-calc(24), func.rem-calc(32));
+
+    margin-top: func.rem-calc(40);
+    width: 80%;
+}
+
+.secondaryCon {
+    @include mixins.block(100%, auto, block);
+    margin: func.rem-calc(70) 0 func.rem-calc(148) 0;
+} 
+
+.secondary {
+    @include text(func.rem-calc(42), func.rem-calc(48));
+
+    width: 80%;
+}
+
+.secondaryContent {
+    @include text(func.rem-calc(24), func.rem-calc(24));
+
+    margin-top: func.rem-calc(70);
+}
+
+.float {
+    @include mixins.clear();
+
+    .secondary {
+        float: right;
+        width: 50%;
+    }
+    
+    .secondaryContent {
+        float: left;
+        width: 40%;
+        margin-top: 0;
+    }
+}
+
+.line {
+    @include mixins.block(100%, 1px, block);
+    background: colors.$border-color;
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+    :host {
+        @include mixins.block(auto, auto, block);
+
+        margin:func.rem-calc(56) auto 0 auto;
+    }
+
+    .primary {
+        @include text(func.rem-calc(60), func.rem-calc(60));
+    }
+    
+    .primaryContent {
+        @include text(func.rem-calc(20), func.rem-calc(24));
+    
+        margin-top: func.rem-calc(36);
+        width: 100%;
+    }
+    
+    .secondaryCon {
+        margin: func.rem-calc(40) 0 func.rem-calc(40) 0;
+    } 
+    
+    .secondary {
+        @include text(func.rem-calc(36), func.rem-calc(40));
+    
+        width: 80%;
+    }
+    
+    .secondaryContent {
+        @include text(func.rem-calc(20), func.rem-calc(24));
+    
+        margin-top: func.rem-calc(32);
+        font-weight: lighter;
+    }
+
+    .float {
+
+        .secondary {
+            float: none;
+            width: 100%;
+        }
+        
+        .secondaryContent {
+            float: none;
+            width: 100%;
+            margin-top: func.rem-calc(32);
+        }
+    }
+}
+

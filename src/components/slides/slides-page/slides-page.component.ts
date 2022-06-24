@@ -6,6 +6,7 @@ import { DomHelper, ScrollMotionHelper } from 'src/components/tools';
     selector: 'webex-slides-page',
     templateUrl: './slides-page.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    styleUrls:['./slides-page.component.scss'],
     host: {
         class:'slides-page'
     }
@@ -16,10 +17,10 @@ export class SlidesPageComponent {
 
     @Input() color: string='#ffffff';
 
-    @Input() index: number;
-
+    index: number;
     range:IRange;
     scrollTop:number;
+
 
     constructor(private viewContainerRef: ViewContainerRef) {
 
@@ -31,7 +32,8 @@ export class SlidesPageComponent {
             start: scrollRange.show.start,
             end: scrollRange.hide.end
         };
-        this.scrollTop = DomHelper.postion(this.viewContainerRef.element.nativeElement).y;
+        this.scrollTop = DomHelper.postion(this.viewContainerRef.element.nativeElement).y-96;
+        //console.log(this.scrollTop, this.range, this.title);
     }
     
 }

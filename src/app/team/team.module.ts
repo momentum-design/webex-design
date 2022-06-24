@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
   DescriptionModule,
-  StoriesBannerModule,
-  SubscriptionBannerModule
+  RolesBannerModule,
+  SlidesModule,
+  SubscriptionBannerSimpleModule
 } from '@lib';
+import { TeamSectionComponent } from './team-section/team-section.component';
 import { TeamRoutingModule } from './team-routing.module';
 import { TeamComponent } from './team.component';
 
@@ -12,10 +14,11 @@ import { TeamComponent } from './team.component';
   imports: [
     CommonModule,
     DescriptionModule,
-    StoriesBannerModule,
-    SubscriptionBannerModule,
+    RolesBannerModule,
+    SlidesModule,
+    SubscriptionBannerSimpleModule,
     TeamRoutingModule
   ],
-  declarations: [TeamComponent]
+  declarations: [TeamComponent, TeamSectionComponent]
 })
 export class TeamModule { }

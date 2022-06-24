@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
   DescriptionModule,
-  SubscriptionBannerModule,
+  SubscriptionBannerSimpleModule,
+  StoriesBannerModule,
 } from '@lib';
 import { StoriesRoutingModule } from './stories-routing.module';
 import { StoriesComponent } from './stories.component';
@@ -11,7 +12,8 @@ import { StoriesComponent } from './stories.component';
   imports: [
     CommonModule,
     DescriptionModule,
-    SubscriptionBannerModule,
+    SubscriptionBannerSimpleModule,
+    StoriesBannerModule,
     StoriesRoutingModule
   ],
   declarations: [StoriesComponent]

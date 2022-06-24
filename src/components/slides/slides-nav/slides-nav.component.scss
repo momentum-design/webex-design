@@ -1,0 +1,79 @@
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+@use 'colors.scss' as colors;
+
+:host {
+    @include mixins.block(auto, auto, block);
+    @include mixins.position(func.rem-calc(120), func.rem-calc(64), fixed);
+    z-index: settings.$z-index-fixed;
+
+    a {
+        @include mixins.block(auto, 32px, block);
+
+        color: colors.$font-3rd;
+        font-size: 16px;
+        vertical-align: middle;
+        margin:func.rem-calc(40) 0 0 0;
+        cursor: pointer;
+
+        span {
+            @include mixins.block(auto, 32px, inline-block);
+            color:inherit;
+        }
+
+        .slides-navs-item-index {
+            @include mixins.block(32px, 32px, inline-block);
+        }
+
+    }
+
+    .previous {
+        color: colors.$font-primary;
+    }
+
+    .current[data-color] {
+        color: colors.$font-primary;
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+
+    :host {
+
+        a {
+            .slides-navs-item-title {
+                display: none;
+            }
+        }
+
+    }
+
+}
+
+@media screen and (max-width: settings.$response-width-middle) {
+
+    :host {
+
+        @include mixins.block(100%, auto, block);
+        @include mixins.position(func.rem-calc(96), 0, fixed);
+        text-align: center;
+        background: colors.$page-background;
+
+        .current {
+            .slides-navs-item-index {
+                border: 1px solid colors.$font-3rd;
+                border-radius: 16px;
+            }
+        }
+
+        a {
+            display: inline-block;
+            text-align: center;
+            margin:0 0 0 0;
+        }
+
+    }
+
+}

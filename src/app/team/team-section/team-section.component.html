@@ -1,0 +1,7 @@
+<p class='primary' [innerHTML]="html(primary)" [style.color]="color"></p>
+<p class='primaryContent' [innerHTML]="html(primaryContent)" ></p>
+<div [ngClass]="{float: isFloat, secondaryCon: true}" >
+    <p class='secondary' [innerHTML]="html(secondary)" [style.color]="color"></p>
+    <p class='secondaryContent' [innerHTML]="html(secondaryContent)" ></p>
+</div>
+<div *ngIf="isShowLine" class="line"></div>
