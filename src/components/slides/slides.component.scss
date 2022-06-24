@@ -1,0 +1,15 @@
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+@use 'colors.scss' as colors;
+
+:host {
+    @include mixins.block(100%, auto, block);
+
+    margin-top: func.rem-calc(25);
+    overflow: hidden;
+    
+    .slides-pages {
+        @include mixins.block(100%, auto, block);
+    }
+}

@@ -1,0 +1,125 @@
+@use 'colors.scss' as colors;
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+@mixin text($font-size, $line-height, $margin-top:0) {
+    font-size: $font-size;
+    line-height: $line-height;
+    margin-top: $margin-top;
+    height: auto;
+    width: 100%;
+}
+
+:host {
+    @include mixins.block(100%, 100vh, block);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.background {
+    @include mixins.block(100%, 100%, block);
+
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.textCon {
+    @include mixins.block(func.rem-calc(336), auto, block);
+    @include mixins.position(func.rem-calc(174),func.rem-calc(230));
+
+    overflow: hidden;
+
+    .primary {
+        @include text(func.rem-calc(42),func.rem-calc(46));
+    }
+
+    .vs {
+        @include text(func.rem-calc(36),func.rem-calc(40), func.rem-calc(7));
+
+        span {
+            text-decoration-line: line-through;
+            color:inherit;
+        }
+    }
+
+    .secondary {
+        @include text(func.rem-calc(18),func.rem-calc(26),30);
+
+        font-weight: bold;
+    }
+
+    .secondartDesc {
+        @include text(func.rem-calc(14),func.rem-calc(26),7);
+
+        color: colors.$font-secondary;
+        font-weight: lighter;
+    }
+
+    .description {
+        @include text(func.rem-calc(16),func.rem-calc(26),30);
+    }
+}
+
+.buttonNext {
+    @include mixins.block(func.rem-calc(130), func.rem-calc(130), block);
+    @include mixins.position4(auto,func.rem-calc(66), func.rem-calc(166));
+
+    border-radius: func.rem-calc(65);
+    border: 1px solid colors.$border-color-button;
+    text-align: center;
+    font-size: func.rem-calc(24);
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: settings.$response-width-middle) {
+
+    :host {
+        @include mixins.block(92vw, 100vh, block);
+        margin-left: 4vw;
+    }
+
+
+    .background {
+        @include mixins.block(auto, 40vh, block);
+        background-size: contain;
+        text-align: center;
+    }
+    
+    .textCon {
+        @include mixins.block(100%, auto, block);
+        @include mixins.position(0,0,relative);
+    
+        .primary {
+            @include text(func.rem-calc(36),func.rem-calc(42), func.rem-calc(7));
+        }
+    
+        .vs {
+            @include text(func.rem-calc(30),func.rem-calc(36), func.rem-calc(7));
+        }
+    
+        .secondary {
+            display: none;
+        }
+    
+        .secondartDesc {
+            display: none;
+        }
+    
+        .description {
+            @include text(func.rem-calc(16),func.rem-calc(20),14);
+        }
+    }
+    
+    .buttonNext {
+        display: none;
+    }
+}
+
+
+

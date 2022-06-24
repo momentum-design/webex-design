@@ -1,0 +1,101 @@
+@use 'colors.scss' as colors;
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(80%, auto);
+    margin: func.rem-calc(230) auto 0 auto;
+
+    @include mixins.clear();
+}
+
+.subsription_left {
+    float: left;
+    width: 36%;
+}
+
+.subsription_right {
+    float: right;
+    width: 50%;
+
+    webex-description {
+        width: 72%;
+    }
+
+    .subsription_ipt {
+        @include mixins.block(100%, func.rem-calc(58), block);
+
+        position: relative;
+        margin-top: (func.rem-calc(30));
+
+        input {
+            @include mixins.block(func.rem-calc(410), func.rem-calc(56));
+            
+            border:1px solid white;
+            border-radius: func.rem-calc(28);
+            background: transparent;
+            font-size: func.rem-calc(15);
+            text-indent: func.rem-calc(28);
+        }
+    
+        input::placeholder {
+            color: white;
+        }
+
+        a {
+            @include mixins.block(func.rem-calc(110), func.rem-calc(56));
+            @include mixins.position(0, func.rem-calc(422));
+    
+            color: colors.$page-background;
+            border:1px solid white;
+            border-radius: func.rem-calc(28); 
+            text-indent: func.rem-calc(28);
+            background: white;
+            cursor: pointer;
+    
+            &::after {
+                @include mixins.block(func.rem-calc(22), func.rem-calc(56), inline-block);
+    
+                content: '';
+                position: relative;
+                top: func.rem-calc(-2);
+                vertical-align: top;
+                background: url('../../assets/icons/arrow-small.svg') no-repeat center;
+            }
+        }
+    }
+
+
+}
+
+
+@media screen and (max-width: settings.$response-width-small){
+    :host {
+        @include mixins.block(92%, auto);
+        margin-top: func.rem-calc(120);
+    }
+
+    .subsription_left {
+        float: none;
+        width: 100%;
+    }
+    
+    .subsription_right {
+        float: none;
+        width: 100%;
+        margin-top: func.rem-calc(30);
+
+        .subsription_ipt {
+            margin-top: func.rem-calc(40);
+
+            input {
+                width: func.rem-calc(228) ;
+            }
+        
+            a {
+                left: func.rem-calc(238)
+            }
+        }
+    }
+}

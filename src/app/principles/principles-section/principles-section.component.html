@@ -1,0 +1,10 @@
+
+<div class="background"  [style.background-image]="getSVG()"></div>
+<div class="textCon" *ngIf="data">
+    <p class='primary' [innerHTML]="html(data.primary)" [style.color]="data.color"></p>
+    <p class='vs' [style.color]="data.color2">vs.<span [style.text-decoration-color]="data.color" [innerHTML]="html(data.vs)"></span></p>
+    <p class='secondary' *ngIf="data.secondary" [innerHTML]="html(data.secondary)"></p>
+    <p class='secondartDesc' *ngIf="data.secondartDesc" [innerHTML]="html(data.secondartDesc)"></p>
+    <p class='description' [innerHTML]="html(data.description)"></p>
+</div>
+<a class="buttonNext" *ngIf="showNext"  (click)="next()">Next</a>

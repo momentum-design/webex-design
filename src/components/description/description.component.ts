@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild, ViewContainerRef } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'webex-description',
@@ -16,8 +17,15 @@ export class DescriptionComponent {
 
     @ViewChild('container') container: ElementRef;
 
-    constructor(private viewContainerRef: ViewContainerRef) {
+    constructor(
+      private viewContainerRef: ViewContainerRef,
+      private sanitizer: DomSanitizer
+      ) {
    
+    }
+
+    html(str:string) {
+      return this.sanitizer.bypassSecurityTrustHtml(str);
     }
 
 }

@@ -1,0 +1,34 @@
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(100%, auto);
+}
+
+.teams-con {
+    @include mixins.block(func.rem-calc(880), auto);
+    margin:0 auto;
+
+    webex-description {
+        margin: func.rem-calc(100) 0 ;
+    }
+}
+
+
+@media screen and (max-width: settings.$response-width-middle) {
+
+    :host ::ng-deep .slides-nav {
+        display: none;
+    }
+
+    .teams-con {
+        @include mixins.block(80%, auto);
+        min-width: func.rem-calc(460);
+    
+        webex-description {
+            margin-top: func.rem-calc(40) ;
+        }
+    }
+
+}

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
   DescriptionModule,
-  SubscriptionBannerModule,
+  SubscriptionBannerSimpleModule,
   TeamBannerModule
 } from '@lib';
 import { ManifestoRoutingModule } from './manifesto-routing.module';
@@ -12,7 +12,7 @@ import { ManifestoComponent } from './manifesto.component';
   imports: [
     CommonModule,
     DescriptionModule,
-    SubscriptionBannerModule,
+    SubscriptionBannerSimpleModule,
     TeamBannerModule,
     ManifestoRoutingModule,
   ],

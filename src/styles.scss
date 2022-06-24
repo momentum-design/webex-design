@@ -21,6 +21,7 @@
 
 body,html {
   background-color: colors.$page-background;
+  min-width: 375px;
 }
 
 body{

@@ -1,0 +1,6 @@
+
+<a *ngFor="let nav of navs;let i=index;"
+    [ngClass]="{'previous': i<current, 'current': i===current}"
+    [style.color]="i===current? nav.color:''"
+    (click)="navTo(i)"
+><span class="slides-navs-item-index">{{getIndex(nav.index)}}</span><span class="slides-navs-item-title">{{nav.title}}</span></a>

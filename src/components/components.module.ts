@@ -6,6 +6,7 @@ import { PrinciplesBannerModule } from './principles-banner';
 import { RolesBannerModule } from './roles-banner';
 import { StoriesBannerModule } from './stories-banner';
 import { SubscriptionBannerModule } from './subscription-banner';
+import { SubscriptionBannerSimpleModule } from './subscription-banner-simple';
 import { TeamBannerModule } from './team-banner';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { TeamBannerModule } from './team-banner';
     RolesBannerModule,
     StoriesBannerModule,
     SubscriptionBannerModule,
+    SubscriptionBannerSimpleModule,
     TeamBannerModule
   ],
   imports: [
@@ -27,6 +29,7 @@ import { TeamBannerModule } from './team-banner';
       RolesBannerModule,
       StoriesBannerModule,
       SubscriptionBannerModule,
+      SubscriptionBannerSimpleModule,
       TeamBannerModule
     ],
 })

@@ -117,5 +117,8 @@
       }
     }
   },
-  "defaultProject": "momentum"
+  "defaultProject": "momentum",
+  "cli": {
+    "analytics": false
+  }
 }
