@@ -1,0 +1,43 @@
+@use './settings.scss' as settings;
+@use './mixins.scss' as mixins;
+@use './functions.scss' as func;
+
+.layout-con {
+    margin:0 auto;
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+
+    .layout-con {
+        @include mixins.block(80%, auto);
+        min-width: func.rem-calc(460);
+    }
+}
+
+@media screen and (min-width: settings.$response-width-small) and (max-width: settings.$response-width-middle) {
+
+    .layout-con {
+        @include mixins.block(func.rem-calc(880), auto);
+    }
+}
+
+@media screen and (min-width: settings.$response-width-middle)  and (max-width: settings.$response-width-large) {
+
+    .layout-con {
+        @include mixins.block(settings.$response-width-large - settings.$page-padding-large, auto);
+    }
+}
+
+@media screen and (min-width: settings.$response-width-large)  and (max-width: settings.$response-width-xlarge) {
+
+    .layout-con {
+        @include mixins.block(settings.$response-width-xlarge - settings.$page-padding-xlarge, auto);
+    }
+}
+
+@media screen and (min-width: settings.$response-width-xlarge) {
+
+    .layout-con {
+        @include mixins.block(settings.$response-width-xxlarge - settings.$page-padding-xxlarge, auto);
+    }
+}

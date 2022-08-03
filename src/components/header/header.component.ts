@@ -21,6 +21,7 @@ export class HeaderComponent implements AfterViewInit  {
   public title: string = '';
 
   @ViewChild('menu') menu: ElementRef;
+  @ViewChild('menu_title') menu_title: ElementRef;
   @ViewChild('menu_btn_path_1') menu_btn_path_1: ElementRef;
   @ViewChild('menu_btn_path_2') menu_btn_path_2: ElementRef;
   @ViewChild('menu_btn_path_3') menu_btn_path_3: ElementRef;
@@ -89,6 +90,12 @@ export class HeaderComponent implements AfterViewInit  {
       frames:[
         {css: { height:'0%' }, time:0},
         {css: { height:'100%' }, tween: 'easeInOut', time:10},
+      ]
+    },{
+      dom: this.menu_title.nativeElement, menu,
+      frames:[
+        {css: { opacity:'1.0' }, time:0},
+        {css: { opacity:'0' }, tween: 'easeInOut', time:10},
       ]
     },{
       dom: this.menu_btn_path_1.nativeElement,

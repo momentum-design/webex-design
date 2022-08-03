@@ -10,6 +10,10 @@ $header-font: 1.5rem;
 $nav-height: 6rem;
 $nav-font: 4rem;
 
+$header-height-small: 4rem;
+$nav-height-small: 4rem;
+$nav-font-small: 3rem;
+
 
 :host {
     @include mixins.position(0rem, 0rem, fixed);
@@ -103,6 +107,19 @@ $nav-font: 4rem;
         }
         .menu_btn {
             right: $header-padding-mobile;
+        }
+    }
+
+    .menu {
+        
+        &::before {
+            @include mixins.block(100%, $header-height-small);
+        }
+    
+        .nav a {
+            @include mixins.block(100%, $nav-height-small);
+
+            font-size: $nav-font-small;
         }
     }
 }
