@@ -3,8 +3,7 @@
 @use 'settings.scss' as settings;
 
 :host {
-    @include mixins.block(100%, auto);
-
+    @include mixins.container-page();
     opacity: 0;
 }
 

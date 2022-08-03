@@ -4,7 +4,7 @@
 @use 'settings.scss' as settings;
 
 :host {
-    @include mixins.block(100%, auto);
+    @include mixins.container-page();
 }
 
 webex-slides, webex-slides-page {
