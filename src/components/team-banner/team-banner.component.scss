@@ -28,8 +28,8 @@
         cursor: pointer;
 
         i {
-            @include mixins.block(120%, 100%);
-            @include mixins.position(0%, -20%);
+            @include mixins.block(100%, 100%);
+            @include mixins.position(0%, 100%);
 
             background-color: colors.$page-background;
         }
@@ -42,13 +42,13 @@
     width: func.rem-calc(200);
 }
 
-@media screen and (max-width: settings.$response-width-small) {
+@media screen and (max-width: settings.$response-width-middle) {
 
     :host {
         @include mixins.block(func.rem-calc(500), 740);
 
         position: relative;
-        margin: func.rem-calc(120) 0 0 settings.$page-padding-small;
+        margin: func.rem-calc(120) 0 0 settings.$page-padding-middle;
     }
 
     .title {
@@ -74,6 +74,14 @@
         width: func.rem-calc(406);
         position: static;
         margin-top: func.rem-calc(50);
+    }
+
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+
+    :host {
+        margin: func.rem-calc(120) 0 0 settings.$page-padding-small;
     }
 
 }

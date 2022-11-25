@@ -24,25 +24,20 @@
 
 .primaryContent {
     @include text(func.rem-calc(24), func.rem-calc(32));
-
     margin-top: func.rem-calc(40);
-    width: 80%;
 }
 
 .secondaryCon {
-    @include mixins.block(100%, auto, block);
-    margin: func.rem-calc(70) 0 func.rem-calc(148) 0;
+    height: 100%;
+    margin-top: func.rem-calc(70);
 } 
 
 .secondary {
     @include text(func.rem-calc(42), func.rem-calc(48));
-
-    width: 80%;
 }
 
 .secondaryContent {
     @include text(func.rem-calc(24), func.rem-calc(24));
-
     margin-top: func.rem-calc(70);
 }
 
@@ -62,7 +57,7 @@
 }
 
 .line {
-    @include mixins.block(100%, 1px, block);
+    height: 1px;
     background: colors.$border-color;
 }
 
@@ -85,7 +80,8 @@
     }
     
     .secondaryCon {
-        margin: func.rem-calc(40) 0 func.rem-calc(40) 0;
+        margin-top: func.rem-calc(40);
+        margin-bottom: func.rem-calc(40);
     } 
     
     .secondary {

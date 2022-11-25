@@ -7,7 +7,7 @@
     @include mixins.container-page();
 }
 
-.layout-con {
+webex-slides {
 
     webex-description {
         margin: func.rem-calc(100) 0 ;
@@ -21,7 +21,7 @@
         display: none;
     }
 
-    .layout-con {
+    webex-slides {
     
         webex-description {
             margin-top: func.rem-calc(40) ;

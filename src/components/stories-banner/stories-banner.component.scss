@@ -6,210 +6,21 @@
 $mobile-con-width: func.rem-calc(480);
 
 :host {
-    @include mixins.block(settings.$response-width-large, func.rem-calc(2080));
+    @include mixins.block(100%, auto);
     position: relative;
     margin: func.rem-calc(92) auto 0 auto;
 }
 
-.title {
-    @include mixins.block(func.rem-calc(360), auto);
 
-    margin-left: settings.$page-padding-large;
-    
-}
-
-.message {
-    width: func.rem-calc(326) ;
-}
-
-.introduce {
-    width: func.rem-calc(106) ;
-}
-
-.mate-1 {
-    @include mixins.block(func.rem-calc(556),func.rem-calc(686));
-    @include mixins.position(func.rem-calc(114), func.rem-calc(843));
-    
-    .message {
-        @include mixins.position(func.rem-calc(467));
-    }
-    
-    .introduce {
-        @include mixins.position(func.rem-calc(580), func.rem-calc(355));
-    }
-
-    .avatar {
-        @include mixins.block(func.rem-calc(540),func.rem-calc(540));
-        @include mixins.position(0, func.rem-calc(20));
-
-        background-color: colors.$section-background;
-        transform: translateX(20%);
-        
-        &::before {
-            @include mixins.block(func.rem-calc(420),func.rem-calc(420));
-            margin: func.rem-calc(60) ;
-            border-radius: 50%;
-            background: url('../../assets/avatar/Tomasz\ Chrostek.png') no-repeat center;
-            background-size: cover;
-            content: ''
-        }
-    }
-}
-
-.mate-2 {
-    @include mixins.position(func.rem-calc(407), settings.$page-padding-middle);
-    @include mixins.block(func.rem-calc(664),func.rem-calc(594));
-
-    .message {
-        @include mixins.position(func.rem-calc(252));
-    }
-    
-    .introduce {
-        @include mixins.position(func.rem-calc(350), func.rem-calc(362));
-    }
-
-    .avatar {
-        @include mixins.block(func.rem-calc(527),func.rem-calc(593));
-        @include mixins.position(30, func.rem-calc(136));
-
-        background: url('../../assets/other/home-team.png') no-repeat center;
-        background-size: contain;
-        transform: translateX(-20%);
-    }
-}
-
-.mate-3 {
-    @include mixins.block(func.rem-calc(646),func.rem-calc(648));
-
-    position: relative;
-    margin: func.rem-calc(1112) auto 0 auto;
-
-    .message {
-        @include mixins.position(func.rem-calc(436), func.rem-calc(181));
-
-        width: func.rem-calc(460) ;
-    }
-    
-    .introduce {
-        @include mixins.position(func.rem-calc(500));
-
-        width: func.rem-calc(140) ;
-    }
-
-    .avatar {
-        @include mixins.block(func.rem-calc(646),func.rem-calc(540));
-
-        i {
-            @include mixins.block(func.rem-calc(540),func.rem-calc(540));
-
-            content: '';
-            border-radius: 50%;
-            background-color: colors.$section-background;
-            margin: 0 auto;
-            transform: scale(1.5);
-        }
-
-        &::after {
-            @include mixins.block(func.rem-calc(646),func.rem-calc(388));
-            @include mixins.position(func.rem-calc(76));
-
-            content: '';
-            background: url('../../assets/avatar/Trip\ Carroll.png') no-repeat center;
-            background-size: cover;
-        }
-    }
-        
-}
-
-.all-stories {
-    @include mixins.block(func.rem-calc(188),func.rem-calc(188));
-
-    font-size: 24px;
-    text-align: center;
-    border:#3E3E3E 1px solid;
-    border-radius: 50%;
-    margin: func.rem-calc(113) auto;
-    cursor: pointer;
+.link {
+    text-align: right;
+    margin: 2rem 12rem 0 0;
 }
 
 @media screen and (max-width: settings.$response-width-small) {
-    :host {
-        @include mixins.block(100%, auto);
-    }
 
-    .title {
-        margin-left: settings.$page-padding-small;
-        width: func.rem-calc(350);
-    }
-
-    .mate-1, .mate-2, .mate-3 {
-        position: static;
-        margin:func.rem-calc(46) 0 0 settings.$page-padding-small;
-
-        .message {
-            @include mixins.block(func.rem-calc(326), auto, inline-block);
-
-            margin-top:func.rem-calc(46);
-            position: static;
-            vertical-align: top;
-        }
-        
-        .introduce {
-            @include mixins.block(func.rem-calc(106), auto, inline-block);
-
-            margin-top:func.rem-calc(46);
-            position: static;
-            vertical-align: top;
-        }
-    }
-    
-    .mate-1 {
-        @include mixins.block($mobile-con-width, func.rem-calc(644));
-        
-        .avatar {
-            @include mixins.block($mobile-con-width,$mobile-con-width);
-            position: static;
-            
-            &::before {
-                @include mixins.block(func.rem-calc(390),func.rem-calc(390));
-                margin: func.rem-calc(45) ;
-            }
-        }
-    }
-    
-    .mate-2 {
-        @include mixins.block($mobile-con-width, func.rem-calc(712));
-        
-        .avatar {
-            @include mixins.block(func.rem-calc(478),func.rem-calc(539));
-
-            position: static;
-        }
-    }
-
-    .mate-3 {
-        @include mixins.block($mobile-con-width, func.rem-calc(575));
-
-        .avatar {
-            @include mixins.block($mobile-con-width,func.rem-calc(400));
-            @include mixins.position(0,0, relative);
-
-            i {
-                @include mixins.block(func.rem-calc(400),func.rem-calc(400));
-            }
-    
-            &::after {
-                @include mixins.block($mobile-con-width,func.rem-calc(286));
-                @include mixins.position(func.rem-calc(57));
-            }
-        }
-    }
-    
-    .all-stories {
-        @include mixins.block(func.rem-calc(150),func.rem-calc(150));
-
-        font-size: func.rem-calc(20);
-        margin: func.rem-calc(46) auto 0 auto;
+    .link {
+        margin: 2rem 2rem 0 0;
     }
     
 }

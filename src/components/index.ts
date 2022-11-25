@@ -9,3 +9,4 @@ export * from './subscription-banner';
 export * from './subscription-banner-simple';
 export * from './team-banner';
 export * from './tools';
+export * from './video'

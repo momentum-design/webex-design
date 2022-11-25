@@ -14,17 +14,27 @@
     }
 
     .banner {
-        @include mixins.block(func.rem-calc(523), func.rem-calc(476));
+        @include mixins.block(func.rem-calc(1546), func.rem-calc(216));
         margin:func.rem-calc(100) auto;
-
-        text-align: center;
-        font-size: func.rem-calc(144);
         background: url('../../assets/other/manifesto.svg') no-repeat center;
         background-size: contain;
     }
+
+    .webex_title {
+        @include mixins.block(100%, func.rem-calc(50));
+
+        font-weight: 500;
+        font-size: 42px;
+        line-height: 50px;
+        background: linear-gradient(267.52deg, #8CC160 47.92%, #40B3E7 117.57%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
 }
 
-@media screen and (max-width: settings.$response-width-middle) {
+@media screen and (max-width: settings.$response-width-small) {
 
     .layout-con {
     
@@ -33,8 +43,7 @@
         }
     
         .banner {
-            @include mixins.block(100%, func.rem-calc(283));
-            font-size: func.rem-calc(80);
+            @include mixins.block(100%, func.rem-calc(56));
         }
     }
 

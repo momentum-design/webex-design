@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'settings.scss' as settings;
 @use 'colors.scss' as colors;
 @use 'mixins.scss' as mixins;
+@use 'functions.scss' as func;
 
 @font-face {
     font-family: 'CiscoSansTT';
@@ -26,4 +28,54 @@ body,html {
 
 body{
   @include mixins.placeholder(100%, 6rem);
+}
+
+.banner-text {
+  width: func.rem-calc(550) ;
+  margin: func.rem-calc(98) 0 0 settings.$page-padding-large;
+}
+
+.banner-text-full {
+  width: auto;
+  margin: func.rem-calc(68) settings.$page-padding-large 0 settings.$page-padding-large;
+}
+
+@media screen and (min-width: settings.$response-width-xxlarge) {
+
+}
+
+@media screen and (min-width: settings.$response-width-large) and (max-width: settings.$response-width-xlarge) {
+
+}
+
+@media screen and (min-width: settings.$response-width-middle) and (max-width: settings.$response-width-large) {
+
+}
+
+@media screen and (min-width: settings.$response-width-small) and (max-width: settings.$response-width-middle) {
+
+  .banner-text {
+    width: func.rem-calc(450);
+    margin: func.rem-calc(68) 0 0 settings.$page-padding-middle;
+  }
+
+  .banner-text-full {
+    width: auto;
+    margin: func.rem-calc(68) settings.$page-padding-middle 0 settings.$page-padding-middle;
+  }
+
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+
+  .banner-text {
+      width: func.rem-calc(350);
+      margin: func.rem-calc(38) 0 0 settings.$page-padding-small;
+  }
+
+  .banner-text-full {
+    width: auto;
+    margin: func.rem-calc(68) settings.$page-padding-small 0 settings.$page-padding-small;
+  }
+
 }

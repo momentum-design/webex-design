@@ -8,6 +8,7 @@ import { StoriesBannerModule } from './stories-banner';
 import { SubscriptionBannerModule } from './subscription-banner';
 import { SubscriptionBannerSimpleModule } from './subscription-banner-simple';
 import { TeamBannerModule } from './team-banner';
+import { VideoModule } from './video';
 
 @NgModule({
   exports: [
@@ -19,18 +20,20 @@ import { TeamBannerModule } from './team-banner';
     StoriesBannerModule,
     SubscriptionBannerModule,
     SubscriptionBannerSimpleModule,
-    TeamBannerModule
+    TeamBannerModule,
+    VideoModule
   ],
   imports: [
-      FooterModule,
-      DescriptionModule,
-      HeaderModule,
-      PrinciplesBannerModule,
-      RolesBannerModule,
-      StoriesBannerModule,
-      SubscriptionBannerModule,
-      SubscriptionBannerSimpleModule,
-      TeamBannerModule
-    ],
+    FooterModule,
+    DescriptionModule,
+    HeaderModule,
+    PrinciplesBannerModule,
+    RolesBannerModule,
+    StoriesBannerModule,
+    SubscriptionBannerModule,
+    SubscriptionBannerSimpleModule,
+    TeamBannerModule,
+    VideoModule
+  ],
 })
 export class ComponentsModule {}

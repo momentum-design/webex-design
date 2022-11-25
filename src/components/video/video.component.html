@@ -1,0 +1,24 @@
+<div class="video-content" #mcontent>
+    <div class='shadow_mask'></div>
+    <div class='shadow'>
+        <webex-description
+        [primary]="primary"
+        [secondary]="secondary"
+        className="small"
+        ></webex-description>
+        <webex-description
+        class="description"
+        [primary]="description"
+        className="middle"
+        ></webex-description>
+        <a class='play'></a>
+    </div>
+    <iframe
+        [src]="safeVideoUrl" 
+        [title]="videoTitle" 
+        #mvideo
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen="true">
+    </iframe>
+</div>
