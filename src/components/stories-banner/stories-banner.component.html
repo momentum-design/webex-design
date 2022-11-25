@@ -1,51 +1,36 @@
 <webex-description
-primary="Team stories"
-secondary="Hear from all the people that make the future of work possible."
-class="title"
-className="middle"
+    primary="Team stories"
+    secondary="Hear from all the people that make the future of work possible."
+    class="banner-text"
+    className="middle"
 ></webex-description>
-<div class="mate-1">
-    <div #avatar1 class="avatar"></div>
-    <webex-description
-    primary='"Chairs are my best friends."'
+<webex-video
+    primary="Stewart Curry"
+    secondary="LEADER, UX ENG"
+    description = '"My work at Webex matters because I’m helping to bring people together"'
+    videoUrl = "https://www.youtube.com/embed/zdZCGln8yus"
+    videoTitle = "YouTube video player"
+></webex-video>
+<webex-video
+    *ngIf = "isList"
+    primary="Stewart Curry"
+    secondary="LEADER, UX ENG"
+    description = '"My work at Webex matters because I’m helping to bring people together"'
+    videoUrl = "https://www.youtube.com/embed/zdZCGln8yus"
+    videoTitle = "YouTube video player"
+></webex-video>
+<webex-video
+    *ngIf = "isList"
+    primary="Stewart Curry"
+    secondary="LEADER, UX ENG"
+    description = '"My work at Webex matters because I’m helping to bring people together"'
+    videoUrl = "https://www.youtube.com/embed/zdZCGln8yus"
+    videoTitle = "YouTube video player"
+></webex-video>
+<webex-description
+    *ngIf = "!isList"
+    link="See all stories"
     url="/stories"
-    class="message"
-    className="middle"
-    ></webex-description>
-    <webex-description
-    primary="Tomasz Chrostek"
-    secondary="VISUAL DESIGNER"
-    class="introduce"
+    class='link'
     className="small"
-    ></webex-description>
-</div>
-<div class="mate-2">
-    <div #avatar2 class="avatar"></div>
-    <webex-description
-    primary='"I’m a flower murderer. But you can’t kill Legos.”'
-    class="message"
-    className="middle"
-    ></webex-description>
-    <webex-description
-    primary="Claire Kim"
-    secondary="PRODUCT DESIGNER"
-    class="introduce"
-    className="small"
-    ></webex-description>
-</div>
-<div class="mate-3">
-    <div class="avatar"><i #avatar3></i></div>
-    <webex-description
-    primary='"Work gives me life more than my kids. Seriously!”'
-    class="message"
-    className='middle'
-    url="/stories"
-    ></webex-description>
-    <webex-description
-    primary="Trip Carroll"
-    secondary="DESIGN MANAGER"
-    class="introduce"
-    className="small"
-    ></webex-description>
-</div>
-<a class="all-stories" routerLink="/stories">All stories</a> 
+></webex-description> 

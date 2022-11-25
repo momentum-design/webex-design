@@ -70,9 +70,9 @@
 }
 
 
-@media screen and (max-width: settings.$response-width-small){
+@media screen and (max-width: settings.$response-width-middle){
     :host {
-        @include mixins.block(92%, auto);
+        @include mixins.block(88%, auto);
         margin-top: func.rem-calc(120);
     }
 
@@ -97,5 +97,11 @@
                 left: func.rem-calc(238)
             }
         }
+    }
+}
+
+@media screen and (max-width: settings.$response-width-large){
+    :host {
+        @include mixins.block(92%, auto);
     }
 }

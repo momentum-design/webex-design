@@ -1,7 +1,4 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
-import {
-   TeamBannerComponent
-} from '@lib';
 
 @Component({
    templateUrl: './manifesto.component.html',
@@ -14,12 +11,10 @@ export class ManifestoComponent implements AfterViewInit  {
    <br><br>
    We're committed to creating a design culture that’s honest, open, inclusive, supportive and amazingly creative. Where the stage is set for everyone to do the most meaningful work of their lives.
    <br><br>
-   We’re Webex Design`;   
-
-   @ViewChild(TeamBannerComponent) team: TeamBannerComponent;
+   We’re Webex Design`;
 
    ngAfterViewInit() {
-      this.team.initMotion();
+
    }
 
 }

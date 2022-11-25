@@ -17,6 +17,7 @@ $footer-padding-mobile: 3rem;
 
     height: $footer-height;
     text-align: center;
+    display: none;
 
     a {
         @include mixins.block(1.5rem, 1.5rem, inline-block);

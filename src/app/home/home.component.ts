@@ -2,7 +2,6 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild, ViewConta
 import { BannerComponent } from './banner/banner.component'
 import { 
    PrinciplesBannerComponent,
-   RolesBannerComponent,
    StoriesBannerComponent,
    TeamBannerComponent
 } from '@lib';
@@ -19,7 +18,6 @@ export class HomeComponent implements AfterViewInit {
    @ViewChild(TeamBannerComponent) team: TeamBannerComponent;
    @ViewChild(PrinciplesBannerComponent) principles: PrinciplesBannerComponent;
    @ViewChild(StoriesBannerComponent) stories: StoriesBannerComponent;
-   @ViewChild(RolesBannerComponent) roles: RolesBannerComponent;
 
    constructor(private viewContainerRef: ViewContainerRef) {
 
@@ -37,10 +35,7 @@ export class HomeComponent implements AfterViewInit {
          }], {
             end: ()=>{
                this.banner.initMotion();
-               this.stories.initMotion();
-               this.team.initMotion();
                this.principles.initMotion();
-               this.roles.initMotion();
             }
          });
          motion.play();
