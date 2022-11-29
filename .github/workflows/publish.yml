@@ -4,11 +4,6 @@ on:
       - master
     paths:
       - '**'
-  pull_request:
-    branches:    
-      - master
-    paths:
-      - '**'
 name: Publish Webex design
 jobs:
   jobBuild:
