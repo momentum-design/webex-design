@@ -11,6 +11,17 @@
     width: 100%;
 }
 
+.bg1 { background-image: url('../../../assets/data/principles/1.svg');}
+.bg2 { background-image: url('../../../assets/data/principles/2.svg');}
+.bg3 { background-image: url('../../../assets/data/principles/3.svg');}
+.bg4 { background-image: url('../../../assets/data/principles/4.svg');}
+.bg5 { background-image: url('../../../assets/data/principles/5.svg');}
+.bg6 { background-image: url('../../../assets/data/principles/6.svg');}
+.bg7 { background-image: url('../../../assets/data/principles/7.svg');}
+.bg8 { background-image: url('../../../assets/data/principles/8.svg');}
+.bg9 { background-image: url('../../../assets/data/principles/9.svg');}
+.bg10 { background-image: url('../../../assets/data/principles/10.svg');}
+
 :host {
     @include mixins.block(100%, 100vh, block);
 
