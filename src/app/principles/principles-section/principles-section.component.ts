@@ -45,8 +45,8 @@ export class PrinciplesSectionComponent implements AfterViewInit {
       }
     }
 
-    getSVG() {
-      return `url('/assets/data/principles/${this.index+1}.svg')`;
+    getBgClass() {
+      return `background bg${this.index+1}`;
     }
     
     html(str:string) {

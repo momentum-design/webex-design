@@ -1,5 +1,5 @@
 
-<div class="background"  [style.background-image]="getSVG()"></div>
+<div [class]="getBgClass()"></div>
 <div class="textCon" *ngIf="data">
     <p class='primary' [innerHTML]="html(data.primary)" [style.color]="data.color"></p>
     <p class='vs' [style.color]="data.color2">vs.<span [style.text-decoration-color]="data.color" [innerHTML]="html(data.vs)"></span></p>
