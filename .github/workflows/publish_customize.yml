@@ -6,7 +6,7 @@ on:
         required: true
         type: string
       genereateCNAME:
-        required: false
+        required: true
         default: false
         type: boolean
 
@@ -22,7 +22,7 @@ jobs:
     - name: Install Package
       run: npm install
     - name: ng build
-      run: npm run build-static repo='${{ github.repository }}' cname='${{ inputs.cname }}' genereateCNAME='$${{ genereateCNAME }}'
+      run: npm run build-static repo='${{ github.repository }}' cname='${{ inputs.cname }}' genereateCNAME='$${{ inputs.genereateCNAME }}'
     - name: Push git subdirectory as branch
       uses: s0/git-publish-subdir-action@v2.5.1
       env:

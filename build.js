@@ -34,6 +34,7 @@ class MyBuilder {
     configSettings() {
         //read settings
         const args = getArgs();
+        console.log(args);
         const distPath = path.resolve(__dirname, './dist');
         this.config = Object.assign({
             dist: './dist',
@@ -66,7 +67,7 @@ class MyBuilder {
                     fs.copyFileSync(fileIndex, file404);
                 }
                 //generate cname
-                if(this.config.cname && this.config.genereateCNAME && this.config.genereateCNAME!=='false') {
+                if(this.config.cname && this.config.genereateCNAME && this.config.genereateCNAME!=='false' && this.config.genereateCNAME!=='$false') {
                     fs.writeFileSync(path.join(this.config.distPath, 'CNAME'), this.config.cname);
                 }
                 resolve(1);
