@@ -10,14 +10,20 @@ jobs:
     name: Publish Webex design
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Build angular
-      uses: ArthusLiang/angular-deploy-gh-pages-actions@master
+    - name: Check out
+      uses: actions/checkout@master
       with:
-        github_access_token: ${{ secrets.ACTION_TOKEN }} 
-        # build_configuration: staging # The build environment for the app. please look configurations in your angular.json
-        base_href: https://momentum-design.github.io/webex-design/   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
-        deploy_branch: gh-pages # The branch the action should deploy to.
-        deploy_folder: ./ #target folder
-        angular_dist_build_folder: dist/momentum # The folder where your project
-
+          fetch-depth: 2
+    - name: Install Package
+      run: npm install
+    - name: ng build
+      run: npm run build-static repo='${{ github.repository }}'
+    - name: Push git subdirectory as branch
+      uses: s0/git-publish-subdir-action@v2.5.1
+      env:
+        REPO: self
+        BRANCH: gh-pages
+        FOLDER: dist
+        GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }} 
+        SKIP_EMPTY_COMMITS: true
+        MESSAGE: "[skip ci](build static site):{msg}"
