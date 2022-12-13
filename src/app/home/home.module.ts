@@ -5,7 +5,6 @@ import {
   PrinciplesBannerModule,
   RolesBannerModule,
   StoriesBannerModule,
-  SubscriptionBannerModule,
   TeamBannerModule
 } from '@lib';
 import { BannerComponent } from './banner/banner.component';
@@ -19,7 +18,6 @@ import { HomeComponent } from './home.component';
     PrinciplesBannerModule,
     RolesBannerModule,
     StoriesBannerModule,
-    SubscriptionBannerModule,
     TeamBannerModule,
     HomeRoutingModule,
   ],
