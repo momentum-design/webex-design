@@ -4,7 +4,7 @@
 @use 'settings.scss' as settings;
 
 :host {
-    @include mixins.block(func.rem-calc(980), func.rem-calc(710));
+    @include mixins.block(func.rem-calc(980), func.rem-calc(1020));
     
     position: relative;
     margin: func.rem-calc(130) auto 0 auto;

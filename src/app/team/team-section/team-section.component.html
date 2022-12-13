@@ -1,6 +1,6 @@
 <p class='primary banner-text-full' [innerHTML]="html(primary)" [style.color]="color"></p>
 <p class='primaryContent banner-text-full' [innerHTML]="html(primaryContent)" ></p>
-<div [ngClass]="{float: isFloat, secondaryCon: true}" class='banner-text-full' >
+<div *ngIf="secondary" [ngClass]="{float: isFloat, secondaryCon: true}" class='banner-text-full' >
     <p class='secondary' [innerHTML]="html(secondary)" [style.color]="color"></p>
     <p class='secondaryContent' [innerHTML]="html(secondaryContent)" ></p>
 </div>

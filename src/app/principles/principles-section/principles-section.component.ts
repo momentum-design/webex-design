@@ -22,7 +22,7 @@ export class PrinciplesSectionComponent implements AfterViewInit {
 
     @Input() data: PrinciplesSectionDataItem;
     
-    @Input() showNext: boolean = true;
+    @Input() showNext: boolean = false;
 
     @Input() index:number;
 
