@@ -15,6 +15,10 @@
         iframe {
             @include mixins.block(100%, 100%);
         }
+
+        &:hover .shadow {
+            display:none;
+        }
     }
 
     webex-description {
@@ -50,16 +54,6 @@ iframe {
     &::before {
         content: '';
         @include mixins.block(100%, func.rem-calc(132));
-    }
-}
-
-.shadow_mask {
-    @include mixins.block(100%, 100%);
-    @include mixins.position(0, 0);
-    z-index: 1;
-
-    &:hover,&:hover~.shadow {
-        display:none;
     }
 }
 
