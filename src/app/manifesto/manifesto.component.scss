@@ -10,12 +10,16 @@
 .layout-con {
 
     webex-description {
-        margin-top: func.rem-calc(100) ;
+        margin-top: func.rem-calc(60);
+    }
+
+    .first-desc {
+        margin-top: func.rem-calc(110);
     }
 
     .banner {
         @include mixins.block(func.rem-calc(1546), func.rem-calc(216));
-        margin:func.rem-calc(100) auto;
+        margin:func.rem-calc(110) auto 0 auto;
         background: url('../../assets/other/manifesto.svg') no-repeat center;
         background-size: contain;
     }
