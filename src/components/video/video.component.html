@@ -1,17 +1,4 @@
 <div class="video-content" #mcontent>
-    <div class='shadow'>
-        <webex-description
-        [primary]="primary"
-        [secondary]="secondary"
-        className="small"
-        ></webex-description>
-        <webex-description
-        class="description"
-        [primary]="description"
-        className="middle"
-        ></webex-description>
-        <a class='play'></a>
-    </div>
     <iframe
         [src]="safeVideoUrl" 
         [title]="videoTitle" 
