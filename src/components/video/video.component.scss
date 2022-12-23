@@ -16,9 +16,6 @@
             @include mixins.block(100%, 100%);
         }
 
-        &:hover .shadow {
-            display:none;
-        }
     }
 
     webex-description {
@@ -30,53 +27,12 @@ iframe {
     @include mixins.block(100%, 100%);
 }
 
-.shadow {
-    @include mixins.block(100%, 100%);
-    @include mixins.position(0, 0);
-
-    background-image: linear-gradient(to right, rgba(24, 24, 24, 0.9)  , rgba(24, 24, 24, 0.1) );
-
-    webex-description {
-        margin-left: 6rem;
-    }
-
-    .description {
-        margin-top: 1.25rem;
-    }
-
-    .play {
-        @include mixins.block(func.rem-calc(56), func.rem-calc(56));
-        margin:7.75rem 0 0 6rem;
-        display: block;
-        background: url('../../assets/icons/play.svg') no-repeat center;
-    }
-
-    &::before {
-        content: '';
-        @include mixins.block(100%, func.rem-calc(132));
-    }
-}
-
 @media screen and (min-width: settings.$response-width-middle) and (max-width: settings.$response-width-large) {
 
     :host {
         margin: func.rem-calc(80) auto 0 auto;
     }
 
-    .shadow {
-
-        .description {
-            margin-top: .25rem;
-        }
-
-        .play {
-            margin:1.25rem 0 0 6rem;
-        }
-
-        &::before {
-            @include mixins.block(100%, func.rem-calc(38));
-        }
-    }
 }
 
 @media screen and (min-width: settings.$response-width-small) and (max-width: settings.$response-width-middle) {
@@ -85,24 +41,6 @@ iframe {
         margin: func.rem-calc(60) auto 0 auto;
     }
 
-    .shadow {
-
-        webex-description {
-            margin-left: 1rem;
-        }
-
-        .description {
-            display: none;
-        }
-
-        .play {
-            margin:1.25rem 0 0 1rem;
-        }
-
-        &::before {
-            @include mixins.block(100%, func.rem-calc(38));
-        }
-    }
 }
 
 @media screen and (max-width: settings.$response-width-small) {
@@ -111,22 +49,5 @@ iframe {
         margin: func.rem-calc(42) auto 0 auto;
     }
 
-    .shadow {
-        webex-description {
-            margin-left: 1rem;
-        }
-
-        .description {
-            display: none;
-        }
-
-        .play {
-            margin:1.25rem 0 0 1rem;
-        }
-
-        &::before {
-            @include mixins.block(100%, func.rem-calc(28));
-        }
-    }
 }
 

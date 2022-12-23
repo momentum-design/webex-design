@@ -9,9 +9,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class VideoComponent implements AfterViewInit {
 
-    @Input() primary: string;
-    @Input() secondary: string;
-    @Input() description: string;
     @Input() videoUrl: string;
     @Input() videoTitle: string;
 
