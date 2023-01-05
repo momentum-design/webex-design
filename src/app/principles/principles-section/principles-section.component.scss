@@ -87,6 +87,35 @@
     cursor: pointer;
 }
 
+@media screen and (min-width: settings.$response-width-xxlarge) {
+
+    .textCon {
+
+        @include mixins.block(func.rem-calc(500), auto, block);
+
+
+        .primary {
+            @include text(func.rem-calc(52),func.rem-calc(56));
+        }
+    
+        .vs {
+            @include text(func.rem-calc(42),func.rem-calc(50), func.rem-calc(10));
+        }
+    
+        .secondary {
+            @include text(func.rem-calc(36),func.rem-calc(42),30);
+        }
+    
+        .secondartDesc {
+            @include text(func.rem-calc(30),func.rem-calc(36),10);
+        }
+    
+        .description {
+            @include text(func.rem-calc(32),func.rem-calc(40),30);
+        }
+    }
+
+}
 
 @media screen and (max-width: settings.$response-width-middle) {
 
@@ -131,6 +160,4 @@
         display: none;
     }
 }
-
-
 

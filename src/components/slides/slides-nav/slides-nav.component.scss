@@ -52,6 +52,30 @@
 
 }
 
+@media screen and (min-width: settings.$response-width-xxlarge) {
+    :host {
+        a {
+            @include mixins.block(auto, 48px, block);
+
+            color: colors.$font-3rd;
+            font-size: 24px;
+            vertical-align: middle;
+            margin:func.rem-calc(40) 0 0 0;
+            cursor: pointer;
+
+            span {
+                @include mixins.block(auto, 48px, inline-block);
+                color:inherit;
+            }
+
+            .slides-navs-item-index {
+                @include mixins.block(48px, 48px, inline-block);
+            }
+
+        }
+    }
+}
+
 @media screen and (max-width: settings.$response-width-middle) {
 
     :host {
