@@ -51,8 +51,10 @@ class MyBuilder {
             this.config.baseHref = `https://${this.config.cname}/`;
         } else if(this.config.repo) {
             const _repo  = this.config.repo.split('/'); 
-            if(_repo.length>1) {
+            if(_repo.length>1 && _repo[0].toLowerCase() !== 'momentum-design') {
                 this.config.baseHref = `https://${_repo[0]}.github.io/${_repo[1]}/`;
+            } else {
+                this.config.baseHref = `https://webex.design/`;
             }
         }
     }
@@ -67,8 +69,8 @@ class MyBuilder {
                     fs.copyFileSync(fileIndex, file404);
                 }
                 //generate cname
-                if(this.config.cname && this.config.genereateCNAME && this.config.genereateCNAME!=='false' && this.config.genereateCNAME!=='$false') {
-                    fs.writeFileSync(path.join(this.config.distPath, 'CNAME'), this.config.cname);
+                if(this.config.baseHref === `https://webex.design/`) {
+                    fs.writeFileSync(path.join(this.config.distPath, 'CNAME'), 'webex.design');
                 }
                 resolve(1);
             });
