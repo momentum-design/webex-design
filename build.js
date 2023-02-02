@@ -69,8 +69,8 @@ class MyBuilder {
                     fs.copyFileSync(fileIndex, file404);
                 }
                 //generate cname
-                if(this.config.cname && this.config.genereateCNAME && this.config.genereateCNAME!=='false' && this.config.genereateCNAME!=='$false') {
-                    fs.writeFileSync(path.join(this.config.distPath, 'CNAME'), this.config.cname);
+                if(this.config.baseHref === `https://webex.design/`) {
+                    fs.writeFileSync(path.join(this.config.distPath, 'CNAME'), 'webex.design');
                 }
                 resolve(1);
             });
