@@ -1,7 +1,6 @@
 @use 'functions.scss' as func;
 @use 'mixins.scss' as mixins;
 @use 'settings.scss' as settings;
-@import 'layout.scss';
 
 :host {
     @include mixins.container-page();

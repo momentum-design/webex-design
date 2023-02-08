@@ -1,13 +1,14 @@
 @use 'functions.scss' as func;
 @use 'mixins.scss' as mixins;
 @use 'settings.scss' as settings;
-@import 'layout.scss';
 
 :host {
     @include mixins.container-page();
+
+    margin-bottom: 2rem;
 }
 
-.layout-con {
+.container-middle {
 
     webex-description {
         margin-top: func.rem-calc(100) ;
@@ -16,7 +17,7 @@
 
 @media screen and (max-width: settings.$response-width-middle) {
 
-    .layout-con {
+    .container-middle {
     
         webex-description {
             margin-top: func.rem-calc(40) ;

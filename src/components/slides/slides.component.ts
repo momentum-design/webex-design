@@ -54,7 +54,6 @@ export class SlidesComponent implements AfterViewInit {
     }
 
     scrollTo(index:number) {
-        
         if(this.pages && this.pages.get(index)) {
             DomHelper.scrollTop(this.pages.get(index)?.scrollTop || 0);
         }

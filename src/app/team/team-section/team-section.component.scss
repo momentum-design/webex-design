@@ -25,6 +25,7 @@
 .primaryContent {
     @include text(func.rem-calc(24), func.rem-calc(32));
     margin-top: func.rem-calc(40);
+    max-width: func.rem-calc(640);
 }
 
 .secondaryCon {

@@ -45,12 +45,13 @@ export class HeaderComponent implements AfterViewInit  {
     this.initMotion();
   }
 
-  clickMenu() {
+  clickMenu(e: any) {
     if(this.isShowMenu) {
       this.closeMenu();
     } else {
       this.openMenu();
     }
+    e.stopPropagation();
   }
 
   private initNav() {
@@ -80,6 +81,13 @@ export class HeaderComponent implements AfterViewInit  {
     this.isShowMenu = true;
     this.motion.stop();
     this.motion.play();
+  }
+
+  hideMenum(e:any) {
+    if(this.isShowMenu) {
+      this.closeMenu();
+    }
+    e.stopPropagation();
   }
 
   private initMotion() {

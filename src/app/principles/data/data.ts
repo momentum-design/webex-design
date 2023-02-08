@@ -1,5 +1,5 @@
 export const data = [{
-    primary: 'Keep things insanely simple',
+    primary: 'Keep things extraordinarily simple',
     vs: 'infinitely flexible and comprehensive',
     color: '#2FB4E8',
     color2: '#255E75',
