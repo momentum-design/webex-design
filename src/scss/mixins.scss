@@ -38,6 +38,11 @@
     }
 }
 
+@mixin container-section() {
+    @include block(100%, auto);
+    overflow: hidden;
+}
+
 @mixin container-page() {
     @include block(100%, auto);
     overflow-x: hidden;

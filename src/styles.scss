@@ -30,6 +30,16 @@ body{
   @include mixins.placeholder(100%, 6rem);
 }
 
+.container-full {
+  @include mixins.container-section();
+}
+
+.container-middle {
+  @include mixins.container-section();
+  max-width: 2560px;
+  margin: 0 auto;
+}
+
 .banner-text {
   width: func.rem-calc(550) ;
   margin: func.rem-calc(98) 0 0 settings.$page-padding-large;
@@ -38,18 +48,6 @@ body{
 .banner-text-full {
   width: auto;
   margin: func.rem-calc(68) settings.$page-padding-large 0 settings.$page-padding-large;
-}
-
-@media screen and (min-width: settings.$response-width-xxlarge) {
-
-}
-
-@media screen and (min-width: settings.$response-width-large) and (max-width: settings.$response-width-xlarge) {
-
-}
-
-@media screen and (min-width: settings.$response-width-middle) and (max-width: settings.$response-width-large) {
-
 }
 
 @media screen and (min-width: settings.$response-width-small) and (max-width: settings.$response-width-middle) {
@@ -70,12 +68,12 @@ body{
 
   .banner-text {
       width: func.rem-calc(350);
-      margin: func.rem-calc(38) 0 0 settings.$page-padding-small;
+      margin: func.rem-calc(38) 0 0 0;
   }
 
   .banner-text-full {
     width: auto;
-    margin: func.rem-calc(68) settings.$page-padding-small 0 settings.$page-padding-small;
+    margin: func.rem-calc(68) 0 0 0;
   }
 
 }

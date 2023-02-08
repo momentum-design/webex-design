@@ -4,12 +4,11 @@
 
 $footer-height: 6.5rem;
 $footer-height-mobile:8.375rem;
-$footer-padding: 4rem;
-$footer-padding-mobile: 3rem;
+$footer-padding-x: 4rem;
 
 :host {
     @include mixins.block(100%, $footer-height);
-    margin-top: 6rem;
+    border-top: 1px solid #4F4F4F;
     position: relative;
 }
 
@@ -47,7 +46,7 @@ $footer-padding-mobile: 3rem;
 .items{
     position: absolute;
     top: 0rem;
-    right: $footer-padding;
+    right: $footer-padding-x;
     text-align: right;
 
     a{
@@ -60,18 +59,17 @@ $footer-padding-mobile: 3rem;
 }
 
 .copyright{
-    @include mixins.position(0, $footer-padding);
+    @include mixins.position(0, $footer-padding-x);
 
     color:colors.$font-secondary;
     font-size: 0.75rem;
 }
 
 @media screen and (max-width: settings.$response-width-middle) {
+
     :host {
         height: $footer-height-mobile;
-        padding: $footer-padding-mobile 0;
         text-align: center;
-        margin-top: 1rem;
     }
 
     .media{

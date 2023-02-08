@@ -31,36 +31,33 @@ export class PrinciplesBannerComponent implements IScrollMotion {
     }
 
     checkScroll() {
-        ScrollMotionHelper.checkScrollAttach(this);
+        ScrollMotionHelper.checkScroll(this);
     }
 
     initMotion(startPlus:number=0, endPlus:number=0) {
         this.scrollMotionConfig = ScrollMotionHelper.getDomViewRange(this.viewContainerRef.element.nativeElement, startPlus, endPlus);
-        const time = this.scrollMotionConfig.hide.start-this.scrollMotionConfig.show.end;
-
-        if(this.scrollMotion) {
-            this.scrollMotion.stop();
+        if(!this.scrollMotion) {
+            const time = 30;
+            this.scrollMotion =  mframe([{
+                dom: this.ball1.nativeElement,
+                frames: [
+                    {attr: { d:'M471 145a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time: 0},
+                    {attr: { d:'M407.3 192.8a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time:time}
+                ]
+            },{
+                dom: this.ball2.nativeElement,
+                frames: [
+                    {attr: { d:'M68 364a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time: 0},
+                    {attr: { d:'M65.0 281.8a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time:time}
+                ]
+            },{
+                dom: this.ball3.nativeElement,
+                frames: [
+                    {attr: { d:'M579 576a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time: 0},
+                    {attr: { d:'M507.0 648.8a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time:time}
+                ]
+            }]);
         }
-
-        this.scrollMotion =  mframe([{
-            dom: this.ball1.nativeElement,
-            frames: [
-                {attr: { d:'M471 145a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time: 0},
-                {attr: { d:'M407.3 192.8a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time:time}
-            ]
-        },{
-            dom: this.ball2.nativeElement,
-            frames: [
-                {attr: { d:'M68 364a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time: 0},
-                {attr: { d:'M65.0 281.8a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time:time}
-            ]
-        },{
-            dom: this.ball3.nativeElement,
-            frames: [
-                {attr: { d:'M579 576a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time: 0},
-                {attr: { d:'M507.0 648.8a60 60 0 1 1 0-120 60 60 0 0 1 0 120Z' }, time:time}
-            ]
-        }]);
         this.checkScroll();
     }
 }

@@ -40,7 +40,7 @@
 }
 
 .link{
-    @include description(func.rem-calc(15), func.rem-calc(56), func.rem-calc(42));
+    @include description(func.rem-calc(15), func.rem-calc(56));
     @include mixins.block(auto, func.rem-calc(56),inline-block);
 
     padding: 0 func.rem-calc(28);
@@ -100,11 +100,19 @@
         .primary{
             @include description(func.rem-calc(42), func.rem-calc(48));
         }
+
+        .link_warps {
+            margin-top: func.rem-calc(24);
+        }
     }
     
     .middle {
         .primary{
             @include description(func.rem-calc(36), func.rem-calc(40));
+        }
+
+        .link_warps {
+            margin-top: func.rem-calc(24);
         }
     }
     

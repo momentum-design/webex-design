@@ -1,4 +1,7 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener, ViewChild } from '@angular/core';
+import { 
+   Responsive
+} from '@lib';
 
 @Component({
    templateUrl: './manifesto.component.html',
@@ -13,8 +16,12 @@ export class ManifestoComponent implements AfterViewInit  {
    <br><br>
    We’re Webex Design`;
 
-   ngAfterViewInit() {
+   @HostListener('window:resize', ['$event']) onResize(e: Event): void {
+      Responsive.resize();
+   }
 
+   ngAfterViewInit() {
+      Responsive.resize();
    }
 
 }

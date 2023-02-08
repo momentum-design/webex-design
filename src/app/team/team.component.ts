@@ -1,7 +1,9 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {
-   RolesBannerComponent
-} from '@lib';
+   SlidesComponent,
+   Responsive
+} from '@lib'
 
 @Component({
    templateUrl: './team.component.html',
@@ -10,11 +12,36 @@ import {
 })
 export class TeamComponent implements AfterViewInit{
    
-   @ViewChild(RolesBannerComponent) roles: RolesBannerComponent;
+   @ViewChild(SlidesComponent) slides: SlidesComponent;
+
+   @HostListener('window:resize', ['$event']) onResize(e: Event): void {
+      Responsive.resize();
+   }
+
+   constructor(
+      private router: ActivatedRoute,
+      private cd: ChangeDetectorRef
+      ) {
+
+   }
 
    ngAfterViewInit() {
-      Promise.resolve().then(()=>{
-         this.roles.initMotion();
+      
+      Responsive.resize();
+      this.router.params.subscribe((params)=>{
+         if(params.tab!==undefined) {
+            Promise.resolve().then(()=>{
+               this.forceUpdate();
+               this.slides.scrollTo(+params.tab);               
+            });
+         }
       });
+
    }
+
+   private forceUpdate() {
+      if (this.cd) {
+          this.cd.detectChanges();
+      }
+    }
 }

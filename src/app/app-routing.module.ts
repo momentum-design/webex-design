@@ -18,6 +18,9 @@ const routes: Routes = [{
   loadChildren: () => import('./team/team.module').then(m => m.TeamModule),
   data: { navIndex: 5 }
 },{
+  path: 'team/:tab',
+  loadChildren: () => import('./team/team.module').then(m => m.TeamModule)
+},{
   path: '',
   loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
   data: { navIndex: 1 }
@@ -26,7 +29,10 @@ const routes: Routes = [{
   loadChildren: () => import('./under-construction/under-construction.module').then(m => m.UnderConstructionModule)
 }];
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy:PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy:PreloadAllModules,
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
