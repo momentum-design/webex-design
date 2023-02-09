@@ -6,6 +6,10 @@
     @include mixins.container-page();
 }
 
+.top-description {
+    max-width: func.rem-calc(640);
+}
+
 webex-slides {
 
     webex-description {
