@@ -94,3 +94,15 @@ $footer-padding-x: 4rem;
         margin-top: 0.625rem;
     }
 }
+
+@media screen and (max-width: settings.$response-width-small) {
+
+    .items{
+    
+        a {
+            margin:0 0.325rem;
+            font-size: 0.625rem;
+        }
+    
+    }
+}
