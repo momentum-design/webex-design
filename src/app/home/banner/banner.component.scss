@@ -3,23 +3,46 @@
 @use 'settings.scss' as settings;
 
 :host {
-    @include mixins.block(100%, func.rem-calc(570));
+    @include mixins.block(100%, auto);
     position: relative;
     margin-top: func.rem-calc(25);
     text-align: center;
-    overflow: hidden;
+    overflow: visible;
 
-    svg {
-        @include mixins.block(auto, 154%);
-        @include mixins.position(0,50%);
-        transform: translate(-50%,-17%);
+    webex-description {
+        text-align: left;
+        @include mixins.position(0, 0);
+        z-index: 10;
     }
+
+    .background{
+        @include mixins.block(100%, auto);
+        @include mixins.position(0, 0);
+
+        background: url('../../../assets/other//w.svg') no-repeat center;
+        background-size: contain;
+    }
+}
+
+@media screen and (max-width: settings.$response-width-middle) {
+
+    :host {
+        margin-top: func.rem-calc(72);
+
+        webex-description {
+            position:static;
+        }
+    
+        .background{
+            position:static;
+        }
+    }
+
 }
 
 @media screen and (max-width: settings.$response-width-small) {
 
     :host {
-        height: func.rem-calc(312);
         margin-top: func.rem-calc(72);
     }
 

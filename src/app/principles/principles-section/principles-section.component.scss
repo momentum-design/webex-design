@@ -35,7 +35,7 @@
     position: relative;
     overflow: hidden;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: right;
     background-size: contain;
 }
 
@@ -117,6 +117,36 @@
 
 }
 
+@media screen and (max-width: settings.$response-width-large) {
+
+    .textCon {
+
+        @include mixins.block(func.rem-calc(360), auto, block);
+        @include mixins.position(func.rem-calc(10),func.rem-calc(100));
+
+        .primary {
+            @include text(func.rem-calc(36),func.rem-calc(42), func.rem-calc(7));
+        }
+    
+        .vs {
+            @include text(func.rem-calc(30),func.rem-calc(36), func.rem-calc(7));
+        }
+
+        .secondary {
+            @include text(func.rem-calc(16),func.rem-calc(24),20);
+        }
+    
+        .secondartDesc {
+            @include text(func.rem-calc(12),func.rem-calc(18),5);
+        }
+    
+        .description {
+            @include text(func.rem-calc(16),func.rem-calc(20),14);
+        }
+    }
+
+}
+
 @media screen and (max-width: settings.$response-width-middle) {
 
     :host {
@@ -126,6 +156,7 @@
 
     .background {
         @include mixins.block(auto, 40vh, block);
+        background-position: center;
         background-size: contain;
         text-align: center;
     }
@@ -133,25 +164,13 @@
     .textCon {
         @include mixins.block(100%, auto, block);
         @include mixins.position(0,0,relative);
-    
-        .primary {
-            @include text(func.rem-calc(36),func.rem-calc(42), func.rem-calc(7));
-        }
-    
-        .vs {
-            @include text(func.rem-calc(30),func.rem-calc(36), func.rem-calc(7));
-        }
-    
+
         .secondary {
             display: none;
         }
     
         .secondartDesc {
             display: none;
-        }
-    
-        .description {
-            @include text(func.rem-calc(16),func.rem-calc(20),14);
         }
     }
     
