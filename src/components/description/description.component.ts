@@ -18,7 +18,7 @@ export class DescriptionComponent {
     @ViewChild('container') container: ElementRef;
 
     constructor(
-      private viewContainerRef: ViewContainerRef,
+      public viewContainerRef: ViewContainerRef,
       private sanitizer: DomSanitizer
       ) {
    
