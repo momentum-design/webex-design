@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewContainerRef } from '@angular/core';
 
 type navItem = {
     title: string;
@@ -23,7 +23,10 @@ export class SlidesNavComponent {
 
     @Output() onClickNav = new EventEmitter<number>();
 
-    constructor(private cd: ChangeDetectorRef){
+    constructor(
+        public viewContainerRef: ViewContainerRef,
+        private cd: ChangeDetectorRef
+    ){
 
     }
 

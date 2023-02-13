@@ -14,7 +14,7 @@ export const ScrollMotionHelper = {
     getInRange(n:number, min: number, max: number):number {
         return Math.min(max, Math.max(min, n));
     },
-    getDomViewRange(dom:Element, startPlus:number=0, endPlus: number=0):IScrollMotionConfig {
+    getDomViewRange(dom:Element, startPlus:number=0, endPlus: number=0, startEndPlus:number=0, endStartPlus: number=0):IScrollMotionConfig {
         const domY = DomHelper.postion(dom).y>>0;
         const viewHeight =  window.innerHeight;
         const scrollMin = 0;
@@ -24,10 +24,10 @@ export const ScrollMotionHelper = {
         return {
             show: {
                 start: ScrollMotionHelper.getInRange(showStart+startPlus, scrollMin, scrollMax),
-                end: ScrollMotionHelper.getInRange(showStart+dom.clientHeight, scrollMin, scrollMax)
+                end: ScrollMotionHelper.getInRange(showStart+dom.clientHeight+startEndPlus, scrollMin, scrollMax)
             },
             hide: {
-                start: ScrollMotionHelper.getInRange(hideEnd-dom.clientHeight, scrollMin, scrollMax),
+                start: ScrollMotionHelper.getInRange(hideEnd-dom.clientHeight+endStartPlus, scrollMin, scrollMax),
                 end: ScrollMotionHelper.getInRange(hideEnd+endPlus, scrollMin, scrollMax)
             }
         }

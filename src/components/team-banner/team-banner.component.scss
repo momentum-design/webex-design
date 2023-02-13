@@ -45,7 +45,7 @@
 @media screen and (max-width: settings.$response-width-middle) {
 
     :host {
-        @include mixins.block(func.rem-calc(500), func.rem-calc(1020));
+        @include mixins.block(100%, func.rem-calc(1020));
 
         position: relative;
         margin: func.rem-calc(120) 0 0 0;
@@ -57,11 +57,11 @@
     
     .list {
         position: static;
-        width: func.rem-calc(480);
+        width: 100%;
         margin-top: func.rem-calc(56);
     
         a {
-            @include mixins.block(func.rem-calc(480), func.rem-calc(124));
+            @include mixins.block(100%, func.rem-calc(124));
     
             font-size: func.rem-calc(80);
             border-bottom:1px solid rgba(255,255,255,0.2);
@@ -81,18 +81,18 @@
 @media screen and (max-width: settings.$response-width-small) {
 
     :host {
-        @include mixins.block(func.rem-calc(300), func.rem-calc(680));
+        @include mixins.block(100%, func.rem-calc(680));
 
         margin: func.rem-calc(120) 0 0 0;
     }
 
     .list {
         position: static;
-        width: func.rem-calc(240);
+        width: 100%;
         margin-top: func.rem-calc(24);
     
         a {
-            @include mixins.block(func.rem-calc(240), func.rem-calc(80));
+            @include mixins.block(100%, func.rem-calc(80));
     
             font-size: func.rem-calc(48);
             border-bottom:1px solid rgba(255,255,255,0.2);

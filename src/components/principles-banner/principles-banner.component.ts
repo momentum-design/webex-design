@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostListener, ViewChild, ViewContainerRef } from '@angular/core';
 import { IScrollMotion, IScrollMotionConfig } from '@types';
 import { ScrollMotionHelper } from '../tools';
 import mframe from 'mframe';
@@ -9,7 +9,7 @@ import mframe from 'mframe';
    styleUrls:['./principles-banner.component.scss'],
    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrinciplesBannerComponent implements IScrollMotion {
+export class PrinciplesBannerComponent implements IScrollMotion, AfterViewInit {
 
     scrollMotion: any;
     scrollMotionConfig: IScrollMotionConfig;
@@ -28,6 +28,12 @@ export class PrinciplesBannerComponent implements IScrollMotion {
 
     constructor(private viewContainerRef: ViewContainerRef) {
 
+    }
+
+    ngAfterViewInit() {
+        Promise.resolve().then(()=>{
+            this.initMotion();
+        });
     }
 
     checkScroll() {

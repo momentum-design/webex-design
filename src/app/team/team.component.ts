@@ -1,7 +1,8 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
    SlidesComponent,
+   SlidesPageComponent,
    Responsive
 } from '@lib'
 
@@ -13,9 +14,11 @@ import {
 export class TeamComponent implements AfterViewInit{
    
    @ViewChild(SlidesComponent) slides: SlidesComponent;
+   @ViewChild('last') lastPage: SlidesPageComponent;
+   @ViewChild('expand') expand: ElementRef;
 
    @HostListener('window:resize', ['$event']) onResize(e: Event): void {
-      Responsive.resize();
+      this.resize();
    }
 
    constructor(
@@ -25,9 +28,15 @@ export class TeamComponent implements AfterViewInit{
 
    }
 
+   resize() {
+      let windowHeight = window.innerHeight || document.body.clientHeight;
+      this.expand.nativeElement.style.height = windowHeight - this.lastPage.viewContainerRef.element.nativeElement.clientHeight - 200 + 'px';
+      Responsive.resize();
+   }
+
    ngAfterViewInit() {
       
-      Responsive.resize();
+      this.resize();
       this.router.params.subscribe((params)=>{
          if(params.tab!==undefined) {
             Promise.resolve().then(()=>{

@@ -18,6 +18,7 @@ export class BannerComponent implements OnDestroy, IScrollMotion, AfterViewInit 
 
     res:any = {
         conH: 0,
+        titleH: 0,
         y0: 0,
         y1: 0
     };
@@ -31,7 +32,6 @@ export class BannerComponent implements OnDestroy, IScrollMotion, AfterViewInit 
 
     @HostListener('window:resize', ['$event']) onResize(e: Event): void {
         this.resize();
-        this.initMotion();
     }
 
     constructor(private viewContainerRef: ViewContainerRef) {
@@ -43,18 +43,22 @@ export class BannerComponent implements OnDestroy, IScrollMotion, AfterViewInit 
     }
 
     ngAfterViewInit() {
-        this.resize();
+        Promise.resolve().then(()=>{
+            this.resize();
+        });
     }
 
     resize() {
         let background = this.background.nativeElement as HTMLElement;
         let w = background.clientWidth;
-        let titleH = (this.desc.viewContainerRef.element.nativeElement as HTMLElement).clientHeight;
+        let elementTitle = this.desc.viewContainerRef.element.nativeElement as HTMLElement;
+        let titleH = elementTitle.clientHeight + elementTitle.offsetTop;
         let bh = 673/1400*w>>0;
 
+        this.res.titleH = titleH;
         if(w>2560) {
             this.res.conH = bh+titleH/2;
-            this.res.y0 = titleH*0.9;
+            this.res.y0 = titleH*1;
             this.res.y1 = titleH*0.8;
         } else if(w>1960) {
             this.res.conH = bh+titleH/2;
@@ -77,16 +81,14 @@ export class BannerComponent implements OnDestroy, IScrollMotion, AfterViewInit 
         background.style.height = bh + 'px';
         background.style.top = this.res.y0  + 'px';
         this.viewContainerRef.element.nativeElement.style.height = this.res.conH +'px';
-    }
 
-    checkScroll() {
-        ScrollMotionHelper.checkScroll(this);
+        this.initMotion();
     }
 
     initMotion() {
-        this.scrollMotionConfig = ScrollMotionHelper.getDomViewRange(this.viewContainerRef.element.nativeElement,this.res.y0,this.res.y0);
+        this.scrollMotionConfig = ScrollMotionHelper.getDomViewRange(this.viewContainerRef.element.nativeElement);
         if(!this.scrollMotion) {
-            const time = 30;
+            const time = this.scrollMotionConfig.hide.start - this.scrollMotionConfig.show.end;
             this.scrollMotion =  mframe([{
                 dom: this.background.nativeElement,
                 frames: [
@@ -95,7 +97,12 @@ export class BannerComponent implements OnDestroy, IScrollMotion, AfterViewInit 
                 ]
             }]);
         };
+        
         this.checkScroll();
+    }
+
+    checkScroll() {
+        ScrollMotionHelper.checkScrollAttach(this);
     }
 
 }

@@ -10,13 +10,15 @@
     max-width: func.rem-calc(640);
 }
 
+.expand {
+    @include mixins.block(100%, auto);
+}
+
 webex-slides {
 
     webex-description {
         margin: func.rem-calc(100) 0 ;
     }
-
-    margin-bottom: func.rem-calc(800);
 }
 
 
@@ -31,8 +33,6 @@ webex-slides {
         webex-description {
             margin-top: func.rem-calc(40) ;
         }
-
-        margin-bottom: func.rem-calc(60);
     }
 
 }

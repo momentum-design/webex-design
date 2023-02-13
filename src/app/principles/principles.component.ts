@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, ViewChild } from '@angular/core';
 import { data } from './data/data';
 import { SlidesComponent, Responsive } from '@lib'; 
 
@@ -10,14 +10,33 @@ import { SlidesComponent, Responsive } from '@lib';
 export class PrinciplesComponent implements AfterViewInit {
 
    data = data;
+   textMarginLeft: string = '0';
+   contentHeight:string = '100vh';
 
    @ViewChild(SlidesComponent) Slides: SlidesComponent;
 
    @HostListener('window:resize', ['$event']) onResize(e: Event): void {
-      Responsive.resize();
+      this.resize();
    }
 
-   constructor() {
+   constructor(private cd: ChangeDetectorRef) {
+   }
+
+   resize() {
+      let bodyW = (document.querySelector('body') as HTMLElement).clientWidth;
+      let contentW = Responsive.resize();
+      let windowHeight = window.innerHeight || document.body.clientHeight;
+      let tml = 16;
+      if(bodyW > 1080) {
+         let navW =(this.Slides.navs.viewContainerRef.element.nativeElement as HTMLElement).clientWidth;
+         let pageMargin = (bodyW - contentW) /2;
+         tml = Math.max(0, navW+20-pageMargin);
+      }
+      this.textMarginLeft = tml+'px';
+      this.contentHeight =  Math.max(0, windowHeight - 96) + 'px';
+      if (this.cd) {
+         this.cd.detectChanges();
+      }
    }
 
    next(index:number) {
@@ -25,7 +44,7 @@ export class PrinciplesComponent implements AfterViewInit {
    }
 
    ngAfterViewInit() {
-      Responsive.resize();
+      this.resize();
    }
 
 }
