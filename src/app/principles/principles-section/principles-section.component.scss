@@ -147,6 +147,17 @@
         flex-direction:column;
     }
 
+    .bg1 { background-image: url('../../../assets/data/principles/1.png');}
+    .bg2 { background-image: url('../../../assets/data/principles/2.png');}
+    .bg3 { background-image: url('../../../assets/data/principles/3.png');}
+    .bg4 { background-image: url('../../../assets/data/principles/4.png');}
+    .bg5 { background-image: url('../../../assets/data/principles/5.png');}
+    .bg6 { background-image: url('../../../assets/data/principles/6.png');}
+    .bg7 { background-image: url('../../../assets/data/principles/7.png');}
+    .bg8 { background-image: url('../../../assets/data/principles/8.png');}
+    .bg9 { background-image: url('../../../assets/data/principles/9.png');}
+    .bg10 { background-image: url('../../../assets/data/principles/10.png');}
+
 
     .background {
         @include mixins.block(100%, auto, block);

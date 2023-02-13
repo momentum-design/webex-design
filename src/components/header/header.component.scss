@@ -40,7 +40,7 @@ $nav-font-small: 3rem;
         @include mixins.block(func.rem-calc(140), $header-height);
         @include mixins.position(0, $header-padding);
 
-        background: url('../../assets/icons/logo.svg') no-repeat center;
+        background: url('../../assets/icons/logo2.svg') no-repeat center;
         cursor: pointer;
     }
 
