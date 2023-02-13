@@ -26,6 +26,10 @@ body,html {
   min-width: 375px;
 }
 
+svg {
+  shape-rendering: crispEdges;
+}
+
 body{
   @include mixins.placeholder(100%, 6rem);
 }
