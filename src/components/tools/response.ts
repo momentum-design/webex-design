@@ -6,13 +6,13 @@ export class Responsive {
         } else if(containerW < 1080) {
           return containerW -64;
         } else if(containerW < 1440) {
-          return 1440 - 284;
+          return containerW - 284;
         } else if(containerW < 1920) {
-          return 1920 - 360;
+          return containerW - 360;
         } else if(containerW <= 2560){
-          return 2560 - 480;
+          return containerW - 480;
         } else {  
-          return 2560;
+          return 2560 - 480;
         }
     }
 
@@ -28,6 +28,8 @@ export class Responsive {
       if(body && elements.length>0) {
         let w = Responsive.width(body.clientWidth || 1080);
         this._resize(elements as NodeListOf<HTMLElement>, w);
+        return w;
       }
+      return 0;
     }
 }

@@ -23,26 +23,30 @@
 .bg10 { background-image: url('../../../assets/data/principles/10.svg');}
 
 :host {
-    @include mixins.block(100%, 100vh, block);
+    @include mixins.block(100%, 100vh, flex);
 
+    margin-bottom: 0;
+    flex-direction:row-reverse;
+    align-items:center;
     position: relative;
     overflow: hidden;
 }
 
 .background {
-    @include mixins.block(100%, 100%, block);
+    @include mixins.block(auto, 100%, block);
 
+    flex: 1;
     position: relative;
     overflow: hidden;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: center;
     background-size: contain;
 }
 
 .textCon {
     @include mixins.block(func.rem-calc(336), auto, block);
-    @include mixins.position(func.rem-calc(174),func.rem-calc(230));
 
+    flex: none;
     overflow: hidden;
 
     .primary {
@@ -76,16 +80,6 @@
     }
 }
 
-.buttonNext {
-    @include mixins.block(func.rem-calc(130), func.rem-calc(130), block);
-    @include mixins.position4(auto,func.rem-calc(66), func.rem-calc(166));
-
-    border-radius: func.rem-calc(65);
-    border: 1px solid colors.$border-color-button;
-    text-align: center;
-    font-size: func.rem-calc(24);
-    cursor: pointer;
-}
 
 @media screen and (min-width: settings.$response-width-xxlarge) {
 
@@ -122,7 +116,6 @@
     .textCon {
 
         @include mixins.block(func.rem-calc(360), auto, block);
-        @include mixins.position(func.rem-calc(10),func.rem-calc(100));
 
         .primary {
             @include text(func.rem-calc(36),func.rem-calc(42), func.rem-calc(7));
@@ -150,21 +143,19 @@
 @media screen and (max-width: settings.$response-width-middle) {
 
     :host {
-        @include mixins.block(92vw, 100vh, block);
+        @include mixins.block(100%, 100vh, flex);
+        flex-direction:column;
     }
 
 
     .background {
-        @include mixins.block(auto, 40vh, block);
-        background-position: center;
-        background-size: contain;
-        text-align: center;
+        @include mixins.block(100%, auto, block);
     }
     
     .textCon {
         @include mixins.block(100%, auto, block);
-        @include mixins.position(0,0,relative);
-
+        margin-bottom: func.rem-calc(16);
+        
         .secondary {
             display: none;
         }
@@ -174,8 +165,5 @@
         }
     }
     
-    .buttonNext {
-        display: none;
-    }
 }
 

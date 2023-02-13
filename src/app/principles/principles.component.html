@@ -3,7 +3,9 @@
         <webex-slides-page *ngFor="let dataItem of data;let i=index;"
         title="" 
         [color]="dataItem.color">
-            <webex-principles-section 
+            <webex-principles-section
+            [style.height]="contentHeight"
+            [textMarginLeft]="textMarginLeft"
             [data]="dataItem"
             [index]="i"
             (onClickNext)='next($event)'

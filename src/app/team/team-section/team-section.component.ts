@@ -20,7 +20,6 @@ export class TeamSectionComponent {
     constructor(
       private sanitizer: DomSanitizer
       ) {
-   
     }
 
     html(str:string) {

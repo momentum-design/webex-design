@@ -14,26 +14,3 @@ $mobile-con-width: func.rem-calc(480);
 .top-banner{
     margin-top: 0;
 }
-
-.link {
-    text-align: right;
-    margin: 2rem 12rem 0 0;
-}
-
-@media screen and (max-width: settings.$response-width-middle) {
-
-    .link {
-        text-align: left;
-        margin: 2rem 0 0 4rem;
-    }
-    
-}
-
-@media screen and (max-width: settings.$response-width-small) {
-
-    .link {
-        text-align: left;
-        margin: 2rem 0 0 2rem;
-    }
-    
-}

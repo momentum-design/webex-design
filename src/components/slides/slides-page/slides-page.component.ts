@@ -22,7 +22,7 @@ export class SlidesPageComponent {
     scrollTop:number;
 
 
-    constructor(private viewContainerRef: ViewContainerRef) {
+    constructor(public viewContainerRef: ViewContainerRef) {
 
     }
 

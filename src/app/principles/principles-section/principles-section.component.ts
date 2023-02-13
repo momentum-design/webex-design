@@ -20,9 +20,9 @@ export type PrinciplesSectionDataItem = {
 })
 export class PrinciplesSectionComponent implements AfterViewInit {
 
+    @Input() textMarginLeft: string = '0';
+
     @Input() data: PrinciplesSectionDataItem;
-    
-    @Input() showNext: boolean = false;
 
     @Input() index:number;
 

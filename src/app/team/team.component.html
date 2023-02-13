@@ -40,12 +40,16 @@
             primaryContent='UX Researchers uncover what users do, say, think, and feel to ensure the voice of the user impacts the strategy and design of Collaboration products.'
             ></webex-team-section>
         </webex-slides-page>
-        <webex-slides-page title="Systems" color="#4493CF">
+        <webex-slides-page #last title="Systems" color="#4493CF">
             <webex-team-section
+            [isShowLine]="false"
             color="#4493CF"
             primary='Systems'
             primaryContent='Systems Designers and technologists set the standards for how the brand comes to life across the entire product ecosystem, and they own the product design system that’s foundational to everything we make. '
             ></webex-team-section>
         </webex-slides-page>
     </webex-slides>
+    <div class="expand" #expand>
+
+    </div>
 </div>

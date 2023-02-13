@@ -28,6 +28,7 @@
     .webex_title {
         @include mixins.block(100%, func.rem-calc(50));
 
+        height: auto;
         font-weight: 500;
         font-size: 42px;
         line-height: 50px;
@@ -46,9 +47,15 @@
         webex-description {
             margin-top: func.rem-calc(40) ;
         }
+
+        .first-desc {
+            margin-top: func.rem-calc(40) ;
+        }
     
         .banner {
             @include mixins.block(100%, func.rem-calc(56));
+
+            margin-top: func.rem-calc(40) ;
         }
     }
 
