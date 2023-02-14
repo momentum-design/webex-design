@@ -85,7 +85,7 @@
 
     .textCon {
 
-        @include mixins.block(func.rem-calc(500), auto, block);
+        @include mixins.block(func.rem-calc(550), auto, block);
 
 
         .primary {
