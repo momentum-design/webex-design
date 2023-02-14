@@ -33,7 +33,6 @@ export class SlidesPageComponent {
             end: scrollRange.hide.end
         };
         this.scrollTop = DomHelper.postion(this.viewContainerRef.element.nativeElement).y-96;
-        //console.log(this.scrollTop, this.range, this.title);
     }
     
 }

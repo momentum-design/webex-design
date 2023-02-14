@@ -95,6 +95,15 @@
     margin-top:0!important;
 }
 
+@media screen and (max-width: settings.$response-width-middle) {
+    .large {
+        .primary{
+            @include description(func.rem-calc(56), func.rem-calc(60));
+        }
+    }
+}
+
+
 @media screen and (max-width: settings.$response-width-small) {
     .large {
         .primary{

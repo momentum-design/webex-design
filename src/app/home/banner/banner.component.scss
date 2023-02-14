@@ -11,13 +11,13 @@
 
     webex-description {
         text-align: left;
-        @include mixins.position(0, 0);
+        @include mixins.position(0, 0, relative);
         z-index: 10;
     }
 
     .background{
         @include mixins.block(100%, auto);
-        @include mixins.position(0, 0);
+        @include mixins.position(0, 0, relative);
 
         background: url('../../../assets/other/w.svg') no-repeat center;
         background-size: contain;
@@ -28,15 +28,10 @@
 
     :host {
         margin-top: func.rem-calc(72);
-
-        webex-description {
-            position:static;
-        }
     
         .background{
             background: url('../../../assets/other/w.png') no-repeat center;
             background-size: contain;
-            position:static;
         }
     }
 
