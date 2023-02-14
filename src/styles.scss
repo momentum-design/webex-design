@@ -54,7 +54,21 @@ body{
   margin: func.rem-calc(68) settings.$page-padding-large 0 settings.$page-padding-large;
 }
 
-@media screen and (min-width: settings.$response-width-small) and (max-width: settings.$response-width-middle) {
+@media screen and (max-width: settings.$response-width-large) {
+
+  .banner-text {
+    width: func.rem-calc(550);
+    margin: func.rem-calc(68) 0 0 settings.$page-padding-middle;
+  }
+
+  .banner-text-full {
+    width: auto;
+    margin: func.rem-calc(68) settings.$page-padding-middle 0 settings.$page-padding-middle;
+  }
+
+}
+
+@media screen and (max-width: settings.$response-width-middle) {
 
   .banner-text {
     width: func.rem-calc(450);

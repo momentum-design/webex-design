@@ -63,20 +63,20 @@
     }
 
     .secondary {
-        @include text(func.rem-calc(18),func.rem-calc(26),30);
+        @include text(func.rem-calc(18),func.rem-calc(26),func.rem-calc(30));
 
         font-weight: bold;
     }
 
     .secondartDesc {
-        @include text(func.rem-calc(14),func.rem-calc(26),7);
+        @include text(func.rem-calc(14),func.rem-calc(26),func.rem-calc(7));
 
         color: colors.$font-secondary;
         font-weight: lighter;
     }
 
     .description {
-        @include text(func.rem-calc(16),func.rem-calc(26),30);
+        @include text(func.rem-calc(16),func.rem-calc(26),func.rem-calc(30));
     }
 }
 
@@ -97,15 +97,15 @@
         }
     
         .secondary {
-            @include text(func.rem-calc(36),func.rem-calc(42),30);
+            @include text(func.rem-calc(36),func.rem-calc(42),func.rem-calc(30));
         }
     
         .secondartDesc {
-            @include text(func.rem-calc(30),func.rem-calc(36),10);
+            @include text(func.rem-calc(30),func.rem-calc(36),func.rem-calc(10));
         }
     
         .description {
-            @include text(func.rem-calc(32),func.rem-calc(40),30);
+            @include text(func.rem-calc(32),func.rem-calc(40),func.rem-calc(30));
         }
     }
 
@@ -126,15 +126,15 @@
         }
 
         .secondary {
-            @include text(func.rem-calc(16),func.rem-calc(24),20);
+            @include text(func.rem-calc(16),func.rem-calc(24),func.rem-calc(20));
         }
     
         .secondartDesc {
-            @include text(func.rem-calc(12),func.rem-calc(18),5);
+            @include text(func.rem-calc(12),func.rem-calc(18),func.rem-calc(5));
         }
     
         .description {
-            @include text(func.rem-calc(16),func.rem-calc(20),14);
+            @include text(func.rem-calc(16),func.rem-calc(20),func.rem-calc(14));
         }
     }
 
@@ -166,14 +166,6 @@
     .textCon {
         @include mixins.block(100%, auto, block);
         margin-bottom: func.rem-calc(16);
-        
-        .secondary {
-            display: none;
-        }
-    
-        .secondartDesc {
-            display: none;
-        }
     }
     
 }
