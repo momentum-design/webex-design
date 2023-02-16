@@ -14,7 +14,7 @@
 }
 
 svg {
-    @include mixins.block(func.rem-calc(819), func.rem-calc(722));
+    @include mixins.block(819px, 722px);
     @include mixins.position(0, 50%);
 
     transform: translate(-50%, - func.rem-calc(60));
@@ -34,7 +34,7 @@ svg {
     }
     
     svg {
-        @include mixins.block(func.rem-calc(628), func.rem-calc(555));
+        @include mixins.block(628px, 555px);
 
         transform: translate(-50%, func.rem-calc(36));
     }

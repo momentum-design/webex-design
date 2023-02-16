@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
+  ConModule,
   SlidesModule
 } from '@lib';
 import { PrinciplesRoutingModule } from './principles-routing.module';
@@ -10,6 +11,7 @@ import { PrinciplesSectionComponent } from './principles-section/principles-sect
 @NgModule({
   imports: [
     CommonModule,
+    ConModule,
     SlidesModule,
     PrinciplesRoutingModule
   ],

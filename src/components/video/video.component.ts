@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostListener, Input, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Input, ViewChild, ViewContainerRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -24,7 +24,8 @@ export class VideoComponent implements AfterViewInit {
 
     constructor(
       private viewContainerRef: ViewContainerRef,
-      private sanitizer: DomSanitizer
+      private sanitizer: DomSanitizer,
+      private cd: ChangeDetectorRef
       ) {
    
     }
@@ -34,24 +35,22 @@ export class VideoComponent implements AfterViewInit {
     }
 
     resize() {
-      let _w = this.viewContainerRef.element.nativeElement.clientWidth || 1080;
-      let _margin = 20;
-      if(_w < 560) {
-        _margin = 16;
-      } else if(_w < 1080) {
-        _margin = 64;
-      } else {
-        _margin = 176;
-      }
-      _w = _w - _margin * 2;
-      let _h = _w * 1080 / 1920 >> 0;
-      this.mcontent.nativeElement.style.width = _w + 'px';
-      this.mcontent.nativeElement.style.height = _h + 'px';
-      this.mcontent.nativeElement.style.marginLeft = _margin + 'px';
+      Promise.resolve().then(()=>{
+          let _w = this.viewContainerRef.element.nativeElement.clientWidth || 1080;
+          let _h = _w * 1080 / 1920 >> 0;
+          this.mcontent.nativeElement.style.height = _h + 'px';
+          this.forceUpdate();
+      });
     }
 
     html(str:string) {
       return this.sanitizer.bypassSecurityTrustHtml(str);
     }
+
+    private forceUpdate() {
+      if (this.cd) {
+          this.cd.detectChanges();
+      }
+  }
 
 }

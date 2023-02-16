@@ -33,7 +33,9 @@ export class BannerComponent implements OnDestroy, IScrollMotion, AfterViewInit 
     }
 
     @HostListener('window:resize', ['$event']) onResize(e: Event): void {
-        this.resize();
+        Promise.resolve().then(()=>{
+            this.resize();
+        });
     }
 
     constructor(

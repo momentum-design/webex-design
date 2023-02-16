@@ -26,6 +26,18 @@ export class SlidesComponent implements AfterViewInit {
 
     constructor() {}
 
+    checkInnerMargin(contentW:number) {
+        let bodyW = (document.querySelector('body') as HTMLElement).clientWidth;
+        let tml = 16;
+        if(bodyW > 1080) {
+            let nav = (this.navs.viewContainerRef.element.nativeElement as HTMLElement);
+            let navW =nav.clientWidth + nav.offsetLeft * 2;
+            let pageMargin = (bodyW - contentW) /2;
+            tml = Math.max(0, navW+20-pageMargin);
+        }
+        return tml;
+    }
+
     ngAfterViewInit() {
         Promise.resolve().then(()=>{
             this.navs.update(this.pages.map((page,index)=>{

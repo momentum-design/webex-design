@@ -1,8 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener, ViewChild } from '@angular/core';
-import {
-   StoriesBannerComponent,
-   Responsive
-} from '@lib';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
    templateUrl: './stories.component.html',
@@ -11,13 +7,4 @@ import {
 })
 export class StoriesComponent {
 
-   @ViewChild(StoriesBannerComponent) stories: StoriesBannerComponent;
-
-   @HostListener('window:resize', ['$event']) onResize(e: Event): void {
-      Responsive.resize();
-   }
-
-   ngAfterViewInit() {
-      Responsive.resize();
-   }
 }

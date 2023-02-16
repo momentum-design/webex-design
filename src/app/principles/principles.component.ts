@@ -1,6 +1,9 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, ViewChild } from '@angular/core';
 import { data } from './data/data';
-import { SlidesComponent, Responsive } from '@lib'; 
+import { 
+   ConComponent,
+   SlidesComponent 
+} from '@lib'; 
 
 @Component({
    templateUrl: './principles.component.html',
@@ -14,6 +17,7 @@ export class PrinciplesComponent implements AfterViewInit {
    contentHeight:string = '100vh';
 
    @ViewChild(SlidesComponent) Slides: SlidesComponent;
+   @ViewChild(ConComponent) WebexCon: ConComponent;
 
    @HostListener('window:resize', ['$event']) onResize(e: Event): void {
       this.resize();
@@ -23,17 +27,11 @@ export class PrinciplesComponent implements AfterViewInit {
    }
 
    resize() {
-      let bodyW = (document.querySelector('body') as HTMLElement).clientWidth;
-      let contentW = Responsive.resize();
       let windowHeight = window.innerHeight || document.body.clientHeight;
-      let tml = 16;
-      if(bodyW > 1080) {
-         let navW =(this.Slides.navs.viewContainerRef.element.nativeElement as HTMLElement).clientWidth;
-         let pageMargin = (bodyW - contentW) /2;
-         tml = Math.max(0, navW+20-pageMargin);
-      }
+      let tml =  this.Slides.checkInnerMargin((this.WebexCon.content.nativeElement as HTMLElement).clientWidth);
       this.textMarginLeft = tml+'px';
       this.contentHeight =  Math.max(0, windowHeight - 96) + 'px';
+
       if (this.cd) {
          this.cd.detectChanges();
       }

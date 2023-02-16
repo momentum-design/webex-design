@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { 
+import {
+  ConModule,
   DescriptionModule, 
   PrinciplesBannerModule,
   RolesBannerModule,
@@ -14,6 +15,7 @@ import { HomeComponent } from './home.component';
 @NgModule({
   imports: [
     CommonModule,
+    ConModule,
     DescriptionModule,
     PrinciplesBannerModule,
     RolesBannerModule,

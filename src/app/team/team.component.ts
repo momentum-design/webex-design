@@ -1,9 +1,10 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {
+import { 
+   ConComponent,
+   PlaceholderComponent,
    SlidesComponent,
-   SlidesPageComponent,
-   Responsive
+   SlidesPageComponent
 } from '@lib'
 
 @Component({
@@ -12,10 +13,13 @@ import {
    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TeamComponent implements AfterViewInit{
+
+   textMarginLeft: number = 0;
    
    @ViewChild(SlidesComponent) slides: SlidesComponent;
    @ViewChild('last') lastPage: SlidesPageComponent;
-   @ViewChild('expand') expand: ElementRef;
+   @ViewChild(PlaceholderComponent) placeholder: PlaceholderComponent;
+   @ViewChild('webexCon') WebexCon: ConComponent;
 
    @HostListener('window:resize', ['$event']) onResize(e: Event): void {
       this.resize();
@@ -29,9 +33,11 @@ export class TeamComponent implements AfterViewInit{
    }
 
    resize() {
-      let windowHeight = window.innerHeight || document.body.clientHeight;
-      this.expand.nativeElement.style.height = windowHeight - this.lastPage.viewContainerRef.element.nativeElement.clientHeight - 200 + 'px';
-      Responsive.resize();
+      this.placeholder.fitHeight(this.lastPage.viewContainerRef.element.nativeElement.clientHeight + 200 );
+      this.textMarginLeft = this.slides.checkInnerMargin((this.WebexCon.content.nativeElement as HTMLElement).clientWidth);
+      Promise.resolve().then(()=>{
+         this.forceUpdate();              
+      });
    }
 
    ngAfterViewInit() {
@@ -41,7 +47,7 @@ export class TeamComponent implements AfterViewInit{
          if(params.tab!==undefined) {
             Promise.resolve().then(()=>{
                this.forceUpdate();
-               this.slides.scrollTo(+params.tab);               
+               this.slides.scrollTo(+params.tab);  
             });
          }
       });
@@ -52,5 +58,5 @@ export class TeamComponent implements AfterViewInit{
       if (this.cd) {
           this.cd.detectChanges();
       }
-    }
+   }
 }

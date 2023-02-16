@@ -1,62 +1,62 @@
 @use 'functions.scss' as func;
 @use 'mixins.scss' as mixins;
 @use 'settings.scss' as settings;
+@use "sass:math";
+
+$bannerWidth: 90vw;
+$bannerWidthMin: 500px;
+$bannerWidthMax: 1980px;
+$bannerRatio: math.div(216, 1546);
 
 :host {
     @include mixins.container-page();
-
-    margin-bottom: 2rem;
 }
 
-.container-middle {
+webex-description {
+    margin-top: func.rem-calc(60);
+}
 
-    webex-description {
-        margin-top: func.rem-calc(60);
-    }
+.first-desc {
+    margin-top: func.rem-calc(110);
+}
 
-    .first-desc {
-        margin-top: func.rem-calc(110);
-    }
+.banner {
+    @include mixins.block($bannerWidth, $bannerRatio * $bannerWidth);
+    min-width: $bannerWidthMin;
+    min-height: $bannerRatio * $bannerWidthMin;
+    max-width: $bannerWidthMax;
+    max-height: $bannerRatio * $bannerWidthMax;
+    margin:func.rem-calc(110) auto 0 auto;
+    background: url('../../assets/other/manifesto.png') no-repeat center;
+    background-size: contain;
+}
 
-    .banner {
-        @include mixins.block(func.rem-calc(1546), func.rem-calc(216));
-        margin:func.rem-calc(110) auto 0 auto;
-        background: url('../../assets/other/manifesto.svg') no-repeat center;
-        background-size: contain;
-    }
+.webex_title {
+    @include mixins.block(100%, func.rem-calc(50));
 
-    .webex_title {
-        @include mixins.block(100%, func.rem-calc(50));
-
-        height: auto;
-        font-weight: 500;
-        font-size: 42px;
-        line-height: 50px;
-        background: linear-gradient(267.52deg, #8CC160 47.92%, #40B3E7 117.57%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-    }
+    height: auto;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 50px;
+    background: linear-gradient(267.52deg, #8CC160 47.92%, #40B3E7 117.57%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
 @media screen and (max-width: settings.$response-width-small) {
 
-    .container-middle {
-    
-        webex-description {
-            margin-top: func.rem-calc(40) ;
-        }
+    webex-description {
+        margin-top: func.rem-calc(40) ;
+    }
 
-        .first-desc {
-            margin-top: func.rem-calc(40) ;
-        }
-    
-        .banner {
-            @include mixins.block(100%, func.rem-calc(56));
+    .first-desc {
+        margin-top: func.rem-calc(40) ;
+    }
 
-            margin-top: func.rem-calc(40) ;
-        }
+    .banner {
+        margin-top: func.rem-calc(40) ;
     }
 
 }
