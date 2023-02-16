@@ -1,0 +1,5 @@
+@use 'mixins.scss' as mixins;
+
+:host {
+    @include mixins.block(100%, auto);
+}

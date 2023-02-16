@@ -1,0 +1,67 @@
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+:host {
+    @include mixins.block(100%, auto, flex);
+    flex-direction: row;
+
+    &::before, &::after {
+        @include mixins.block(settings.$page-padding-xxlarge, auto);
+
+        content: '';
+        flex: none;
+    }
+
+    .content {
+        @include mixins.block(auto, auto);
+
+        flex: 1;
+    }
+}
+
+@media screen and (min-width: settings.$response-width-xxlarge) {
+    :host {
+        &::before, &::after {
+            width: auto;
+            flex: 1;
+        }
+    
+        .content {
+            width: settings.$response-width-xxlarge - settings.$page-padding-xxlarge;
+            flex: none;
+        }
+    }
+}
+
+@media screen and (max-width: settings.$response-width-xlarge ) {
+    :host {
+        &::before, &::after {
+            width: settings.$page-padding-xlarge;
+        }
+    }
+}
+
+@media screen and (max-width: settings.$response-width-large) {
+    :host {
+        &::before, &::after {
+            width: settings.$page-padding-large;
+        }
+    }
+}
+
+@media screen and (max-width: settings.$response-width-middle) {
+    :host {
+        &::before, &::after {
+            width: settings.$page-padding-middle;
+        }
+    }
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+    :host {
+        &::before, &::after {
+            width: settings.$page-padding-small;
+        }
+    }
+}

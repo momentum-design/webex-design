@@ -1,15 +1,13 @@
-<div class="container-middle">
-    <webex-slides>
-        <webex-slides-page *ngFor="let dataItem of data;let i=index;"
-        title="" 
-        [color]="dataItem.color">
-            <webex-principles-section
-            [style.height]="contentHeight"
-            [textMarginLeft]="textMarginLeft"
-            [data]="dataItem"
-            [index]="i"
-            (onClickNext)='next($event)'
-            ></webex-principles-section>
-        </webex-slides-page>
-    </webex-slides>
-</div>
+<webex-slides>
+    <webex-slides-page *ngFor="let dataItem of data;let i=index;" title="" [color]="dataItem.color">
+        <webex-con>
+                <webex-principles-section
+                [style.height]="contentHeight"
+                [textMarginLeft]="textMarginLeft"
+                [data]="dataItem"
+                [index]="i"
+                (onClickNext)='next($event)'
+                ></webex-principles-section>
+        </webex-con>
+    </webex-slides-page>
+</webex-slides>

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { 
+import {
+  ConModule,
   DescriptionModule,
+  PlaceholderModule,
   RolesBannerModule,
   SlidesModule,
 } from '@lib';
@@ -12,7 +14,9 @@ import { TeamComponent } from './team.component';
 @NgModule({
   imports: [
     CommonModule,
+    ConModule,
     DescriptionModule,
+    PlaceholderModule,
     RolesBannerModule,
     SlidesModule,
     TeamRoutingModule

@@ -1,10 +1,9 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, HostListener, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { BannerComponent } from './banner/banner.component'
 import { 
    PrinciplesBannerComponent,
    StoriesBannerComponent,
-   TeamBannerComponent,
-   Responsive
+   TeamBannerComponent
 } from '@lib';
 import mframe from 'mframe';
 
@@ -20,17 +19,12 @@ export class HomeComponent implements AfterViewInit {
    @ViewChild(PrinciplesBannerComponent) principles: PrinciplesBannerComponent;
    @ViewChild(StoriesBannerComponent) stories: StoriesBannerComponent;
 
-   @HostListener('window:resize', ['$event']) onResize(e: Event): void {
-      Responsive.resize();
-   }
-
    constructor(private viewContainerRef: ViewContainerRef) {
 
    }
 
    ngAfterViewInit() {
 
-      Responsive.resize();
       Promise.resolve().then(()=>{
 
          const motion = mframe([{

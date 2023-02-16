@@ -8,20 +8,14 @@
     margin-bottom: 2rem;
 }
 
-.container-middle {
-
-    webex-description {
-        margin-top: func.rem-calc(100) ;
-    }
+webex-description {
+    margin-top: func.rem-calc(100) ;
 }
 
 @media screen and (max-width: settings.$response-width-middle) {
 
-    .container-middle {
-    
-        webex-description {
-            margin-top: func.rem-calc(40) ;
-        }
+    webex-description {
+        margin-top: func.rem-calc(40) ;
     }
 
 }
