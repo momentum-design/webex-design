@@ -29,7 +29,7 @@
     flex-direction:row-reverse;
     align-items:center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .background {
@@ -173,26 +173,34 @@
     .textCon {
         @include mixins.block(100%, auto, block);
         margin-bottom: func.rem-calc(16);
-    }
 
-    .primary {
-        @include text(func.rem-calc(32),func.rem-calc(36), func.rem-calc(7));
-    }
-
-    .vs {
-        @include text(func.rem-calc(24),func.rem-calc(28), func.rem-calc(7));
-    }
-
-    .secondary {
-        @include text(func.rem-calc(14),func.rem-calc(18),func.rem-calc(7));
-    }
-
-    .secondartDesc {
-        @include text(func.rem-calc(12),func.rem-calc(16),func.rem-calc(5));
-    }
-
-    .description {
-        @include text(func.rem-calc(14),func.rem-calc(18),func.rem-calc(7));
+        .primary {
+            @include text(func.rem-calc(32),func.rem-calc(36), func.rem-calc(7));
+        }
+    
+        .vs {
+            @include text(func.rem-calc(24),func.rem-calc(28), func.rem-calc(7));
+        }
+    
+        .secondary {
+            @include text(func.rem-calc(14),func.rem-calc(18),func.rem-calc(7));
+        }
+    
+        .secondartDesc {
+            @include text(func.rem-calc(12),func.rem-calc(16),func.rem-calc(5));
+        }
+    
+        .description {
+            @include text(func.rem-calc(14),func.rem-calc(18),func.rem-calc(7));
+        }
     }
     
+}
+
+@media screen and (max-width: settings.$response-width-small) {
+    .textCon {
+        .primary {
+            @include text(func.rem-calc(30),func.rem-calc(34), func.rem-calc(7));
+        }
+    }
 }
