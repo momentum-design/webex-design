@@ -6,7 +6,7 @@
 $bannerWidth: 90vw;
 $bannerWidthMin: 500px;
 $bannerWidthMax: 1980px;
-$bannerRatio: math.div(216, 1546);
+$bannerRatio: math.div(425, 3060);
 
 :host {
     @include mixins.container-page();

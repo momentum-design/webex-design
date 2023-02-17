@@ -28,6 +28,7 @@ export class PrinciplesComponent implements AfterViewInit {
 
    resize() {
       let windowHeight = window.innerHeight || document.body.clientHeight;
+      let w = document.body.clientWidth;
       let tml =  this.Slides.checkInnerMargin((this.WebexCon.content.nativeElement as HTMLElement).clientWidth);
       this.textMarginLeft = tml+'px';
       this.contentHeight =  Math.max(0, windowHeight - 96) + 'px';
