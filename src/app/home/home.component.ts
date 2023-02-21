@@ -31,12 +31,12 @@ export class HomeComponent implements AfterViewInit {
             dom: this.viewContainerRef.element.nativeElement,
             frames: [
                {css: { opacity:'0', transform: 'translate(0,100px)' }, time:0},
-               {css: { opacity:'1.0'}, tween: 'easeInOut', time:30},
-               {css: { transform: 'translate(0,0px)' }, tween: 'easeInOut', time:45}
+               {css: { opacity:'1.0'}, tween: 'easeInOut', time:60},
+               {css: { transform: 'translate(0,0px)' }, tween: 'easeInOut', time:120}
             ]
          }], {
             end: ()=>{
-               this.banner.initMotion();
+               //this.banner.initMotion();
                this.principles.initMotion();
             }
          });

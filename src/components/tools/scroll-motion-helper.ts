@@ -75,7 +75,10 @@ export const ScrollMotionHelper = {
     checkScrollAttach(component: IScrollMotion) {
         if(component.scrollMotion && component.scrollMotionConfig) {
             const y = DomHelper.scrollTop();
-            const frameIndex = ScrollMotionHelper.getScrollRelativePosition(y, component.scrollMotionConfig.show.end, component.scrollMotionConfig.hide.start);
+            const relativeY = ScrollMotionHelper.getScrollRelativePosition(y, component.scrollMotionConfig.show.end, component.scrollMotionConfig.hide.start);
+            let range = component.scrollMotionConfig.hide.start - component.scrollMotionConfig.show.end;
+            let frameIndex = range > 0 ?  Math.round(relativeY/range * component.scrollMotion.LastFrame) : relativeY;
+
             if(component.scrollMotion.CurrentFrame!==frameIndex) {
                 component.scrollMotion.state(frameIndex, ScrollMotionHelper.isScrollDown(y, component));
             }
