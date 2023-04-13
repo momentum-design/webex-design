@@ -3,6 +3,7 @@ import { ConModule } from './con';
 import { DescriptionModule } from './description';
 import { FooterModule } from './footer';
 import { HeaderModule } from './header';
+import { IntroductionModule } from './introduction';
 import { PlaceholderModule } from './placeholder';
 import { PrinciplesBannerModule } from './principles-banner';
 import { RolesBannerModule } from './roles-banner';
@@ -18,6 +19,7 @@ import { VideoModule } from './video';
     ConModule,
     DescriptionModule,
     HeaderModule,
+    IntroductionModule,
     PlaceholderModule,
     PrinciplesBannerModule,
     RolesBannerModule,
@@ -32,6 +34,7 @@ import { VideoModule } from './video';
     ConModule,
     DescriptionModule,
     HeaderModule,
+    IntroductionModule,
     PlaceholderModule,
     PrinciplesBannerModule,
     RolesBannerModule,

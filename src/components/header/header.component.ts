@@ -33,7 +33,7 @@ export class HeaderComponent implements AfterViewInit  {
     this.initNav();
     this.router.events.subscribe((event) => {
       if(event instanceof NavigationEnd) {
-        this.title = event.url.split('/')[1] || '';
+        this.title = (event.url.split('/')[1] || '').replace(/\-/g,' ');
         if(this.isShowMenu) {
           this.closeMenu();
         }
@@ -66,7 +66,7 @@ export class HeaderComponent implements AfterViewInit  {
       const path = cfg.path || '';
       return {
         path: path,
-        name: path === ''? 'home' : path,
+        name: path === ''? 'home' :  path.replace(/\-/g, ' '),
       }
     }).sort();
   }

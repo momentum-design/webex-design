@@ -2,6 +2,7 @@ export * from './con';
 export * from './description';
 export * from './footer';
 export * from './header';
+export * from './introduction';
 export * from './placeholder';
 export * from './principles-banner';
 export * from './roles-banner';

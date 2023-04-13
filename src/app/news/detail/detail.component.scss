@@ -1,0 +1,41 @@
+@use 'colors.scss' as colors;
+@use 'functions.scss' as func;
+@use 'mixins.scss' as mixins;
+@use 'settings.scss' as settings;
+
+webex-introduction{
+    background-color: transparent;
+}
+
+.line {
+    @include mixins.block(100%, 1px);
+
+    margin: 60px auto;
+    background-color:rgba(255,255,255,0.2);
+}
+
+.mark-down-content-container{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center ;
+}
+
+.mask {
+
+    img {
+        @include mixins.position(50%, 50%, absolute);
+
+        transform: translate(-50%,-50%);
+
+        min-width: 100px;
+        max-width: 96vw;
+        max-height: 96vh;
+    }
+}
+
+@media screen and (max-width: settings.$response-width-middle) {
+
+    .line {
+        margin: 35px auto;
+    }
+}

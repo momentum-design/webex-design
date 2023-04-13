@@ -8,18 +8,22 @@ const routes: Routes = [{
 },{
   path: 'principles',
   loadChildren: () => import('./principles/principles.module').then(m => m.PrinciplesModule),
-  data: { navIndex: 3 }
+  data: { navIndex: 4 }
 },{
   path: 'stories',
   loadChildren: () => import('./stories/stories.module').then(m => m.StoriesModule),
-  data: { navIndex: 4 }
+  data: { navIndex: 5 }
 },{
   path: 'team',
   loadChildren: () => import('./team/team.module').then(m => m.TeamModule),
-  data: { navIndex: 5 }
+  data: { navIndex: 6 }
 },{
   path: 'team/:tab',
   loadChildren: () => import('./team/team.module').then(m => m.TeamModule)
+},{
+  path: 'what-is-new',
+  loadChildren: () => import('./news/news.module').then(m => m.NewsModule),
+  data: { navIndex: 3}
 },{
   path: '',
   loadChildren: () => import('./home/home.module').then(m => m.HomeModule),

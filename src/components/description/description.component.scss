@@ -95,7 +95,60 @@
     margin-top:0!important;
 }
 
+.card {
+
+    .primary{
+        @include description(func.rem-calc(42), func.rem-calc(46));
+    }
+
+    .secondary {
+        @include description(func.rem-calc(24), func.rem-calc(30), func.rem-calc(24));
+    }
+
+    .link_warps {
+        margin-top: func.rem-calc(18);
+    }
+}
+
+@media screen and (max-width: settings.$response-width-large) {
+
+    .card {
+
+        .primary{
+            @include description(func.rem-calc(32), func.rem-calc(36));
+        }
+    
+        .secondary {
+            @include description(func.rem-calc(20), func.rem-calc(24), func.rem-calc(18));
+        }
+    
+        .link_warps {
+            margin-top: func.rem-calc(18);
+        }
+    }
+}
+
 @media screen and (max-width: settings.$response-width-middle) {
+
+    .card {
+
+        .primary{
+            @include description(func.rem-calc(28), func.rem-calc(32));
+
+            max-height: func.rem-calc(96);
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    
+        .secondary {
+            @include description(func.rem-calc(18), func.rem-calc(22), func.rem-calc(18));
+
+            max-height: func.rem-calc(44);
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
     .large {
         .primary{
             @include description(func.rem-calc(56), func.rem-calc(60));
@@ -105,6 +158,26 @@
 
 
 @media screen and (max-width: settings.$response-width-small) {
+
+    .card {
+
+        .primary{
+            @include description(func.rem-calc(20), func.rem-calc(24));
+
+            max-height: func.rem-calc(72);
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    
+        .secondary {
+            @include description(func.rem-calc(18), func.rem-calc(22), func.rem-calc(18));
+
+            max-height: func.rem-calc(44);
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
     .large {
         .primary{
             @include description(func.rem-calc(42), func.rem-calc(48));
