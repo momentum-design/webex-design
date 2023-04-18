@@ -1,0 +1,16 @@
+<webex-con>
+    <p *ngIf="isLoading">loading</p>
+    <webex-introduction  *ngIf="!isLoading"
+        [date]="item.date"
+        [title]="item.title"
+        [description]="item.description"
+        [imageUrl] ='item.image'
+    ></webex-introduction>
+    <div class="line"></div>
+    <div class="mark-down-content-container">
+        <div class="mark-down-content" [innerHTML]="content" (click)="clickContent($event)" ></div>        
+    </div>
+</webex-con>
+<div class='mask' [ngClass]="{'hide': !isShowMask}" (click)="hideMask()">
+    <img [src]="maskImgUrl" (click)="stopBubble($event)"/>
+</div>

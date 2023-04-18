@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   ConModule,
-  DescriptionModule, 
+  DescriptionModule,
+  IntroductionModule,
   PrinciplesBannerModule,
   RolesBannerModule,
   StoriesBannerModule,
@@ -17,6 +18,7 @@ import { HomeComponent } from './home.component';
     CommonModule,
     ConModule,
     DescriptionModule,
+    IntroductionModule,
     PrinciplesBannerModule,
     RolesBannerModule,
     StoriesBannerModule,

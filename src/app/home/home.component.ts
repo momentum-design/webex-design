@@ -1,6 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { BannerComponent } from './banner/banner.component'
 import { 
+   ArticleHelper, 
+   ArticleDIR,
    PrinciplesBannerComponent,
    StoriesBannerComponent,
    TeamBannerComponent
@@ -14,6 +16,8 @@ import mframe from 'mframe';
 })
 export class HomeComponent implements AfterViewInit {
 
+   news:any;
+
    @ViewChild(BannerComponent) banner: BannerComponent;
    @ViewChild(TeamBannerComponent) team: TeamBannerComponent;
    @ViewChild(PrinciplesBannerComponent) principles: PrinciplesBannerComponent;
@@ -22,6 +26,14 @@ export class HomeComponent implements AfterViewInit {
    constructor(private viewContainerRef: ViewContainerRef) {
 
    }
+
+   ngOnInit(): void {
+      fetch(`${ArticleDIR.ROOT}/news.json`)
+      .then((response) => response.json())
+      .then((data) => {
+        this.news = ArticleHelper.makeList(data, ArticleDIR.NEWS, 1)[0];
+      });
+    }
 
    ngAfterViewInit() {
 

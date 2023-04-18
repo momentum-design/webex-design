@@ -1,9 +1,19 @@
 <webex-con>
     <webex-home-banner></webex-home-banner>
+    <webex-description 
+        class="news"
+        primary="What's new"
+        className="middle"
+    ></webex-description>
+    <webex-introduction *ngIf="news"
+    [title]="news.title"
+    [description]="news.description"
+    [url]="'what-is-new/'+news.url"
+    [imageUrl] ='news.image'
+></webex-introduction>
     <webex-stories-banner class="stories-banner"></webex-stories-banner>
     <webex-team-banner></webex-team-banner>    
 </webex-con>
 <div class="container-full">
     <webex-principles-banner></webex-principles-banner>    
 </div>
-

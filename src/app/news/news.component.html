@@ -1,0 +1,10 @@
+<webex-con>
+    <p *ngIf="isLoading">loading</p>
+    <webex-introduction *ngFor="let item of data;"
+        [date]="item.date"
+        [title]="item.title"
+        [description]="item.description"
+        [url]="item.url"
+        [imageUrl] ='item.image'
+    ></webex-introduction> 
+</webex-con>

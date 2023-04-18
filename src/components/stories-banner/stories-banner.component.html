@@ -1,12 +1,21 @@
-<webex-description
-    *ngIf = "!isList"
-    primary="Team stories"
-    secondary="Hear first-hand what it’s like to be part of the Webex Design team."
-    link="See all stories"
-    url="/stories"
-    class="banner-text top-banner"
-    className="middle"
-></webex-description>
+<div *ngIf="!isList" class="top-banner">
+    <webex-description
+        primary="Team stories"
+        class="b1"
+        className="middle"
+    ></webex-description>
+    <webex-description
+        secondary="Hear first-hand what it’s like to be part of the Webex Design team."
+        class="b2"
+        className="middle"
+    ></webex-description>
+    <webex-description
+        link="See all stories"
+        url="/stories"
+        class="b3"
+        className="middle"
+    ></webex-description>
+</div>
 <webex-video
     videoUrl = "https://www.youtube.com/embed/A0OCsdOhanA"
     videoTitle = "YouTube video player"

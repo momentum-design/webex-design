@@ -6,9 +6,13 @@
     opacity: 0;
 
     .stories-banner {
-        margin-top: 0 !important;
+        margin-top: 90px !important;
         position: relative;
         z-index:10;
+    }
+
+    .news{
+        margin-top: func.rem-calc(50) !important;
     }
 
 }

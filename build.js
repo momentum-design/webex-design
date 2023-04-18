@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const { exec, execSync } = require('child_process');
-const { threadId } = require('worker_threads');
+const { MarkdownBuild } = require('./tools/markdown-build'); 
 
 const regArgs = /^([^\=]+)\=([^\=]+)$/;
 const getArgs = () => {
@@ -14,6 +14,20 @@ const getArgs = () => {
         }
     });
     return ret;
+};
+
+const GenerateArticleIndex = async ()=> {
+    let articleRoot = path.resolve(__dirname, './src/assets/articles');
+    let articleMarkdownBuild = new MarkdownBuild(articleRoot);
+
+    if(!fs.existsSync(articleRoot)) {
+        fs.mkdirSync(articleRoot, {
+            recursive: true
+        });
+    }
+    let newsFolder = 'news';
+    let newsData = await articleMarkdownBuild.getIndexJson(newsFolder);
+    fs.writeFileSync(path.join(articleRoot, `${newsFolder}.json`), JSON.stringify(newsData, null ,'\t'));
 };
 
 class MyBuilder {
@@ -61,6 +75,7 @@ class MyBuilder {
 
     async ngBuild() {
         return new Promise((resolve, reject)=>{
+            console.log(`ng build momentum --output-path '${this.config.dist}' --configuration=production --base-href '${this.config.baseHref}'`);
             exec(`ng build momentum --output-path '${this.config.dist}' --configuration=production --base-href '${this.config.baseHref}'`, (err, stdout, stderr) => {
                 //genereate 404
                 const fileIndex = path.join(this.config.distPath,'index.html');
@@ -72,12 +87,18 @@ class MyBuilder {
                 if(this.config.baseHref === `https://webex.design/`) {
                     fs.writeFileSync(path.join(this.config.distPath, 'CNAME'), 'webex.design');
                 }
+                fs.writeFileSync(path.join(this.config.distPath, '_config.yml'), `include:
+    - assets`);
+                fs.writeFileSync(path.join(this.config.distPath, '.nojekyll'), ``);
                 resolve(1);
             });
         });
     }
 
     async build() {
+        console.log('start to build articles');
+        await GenerateArticleIndex();
+        console.log('start to build website');
         await this.ngBuild();
     }
 
