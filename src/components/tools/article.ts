@@ -6,8 +6,7 @@ export const ArticleDIR = {
     NEWS: dir_news
 }
 
-const regUrlSplit = /\//g;
-const regUrlSplitReplacement = /\@/g;
+const regUrlTirm = /.md$/i;
 
 export const ArticleHelper = {
     getFileFolder(path:string) {
@@ -15,10 +14,11 @@ export const ArticleHelper = {
         return arr.length > 1 ? arr.slice(0, arr.length-1).join('/') : '';
     },
     encodeURIFilePath(str:string) {
-        return str.replace(regUrlSplit, '@');
+        // return str.replace(/\s/g, '-');
+        return str.replace(/\s/g, '-').replace(/\//g, '_').replace(regUrlTirm,'');
     },
     decodeURIFilePath(str:string) {
-        return str.replace(regUrlSplitReplacement, '/');
+        return str.replace(/\-/g, ' ').replace(/\_/g, '/')+'.md';
     },
     makeHeaderData(url:string, filePath:string, repoUrl:string ,data:any) {
         return Object.assign({}, data, {
