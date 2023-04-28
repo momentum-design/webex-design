@@ -13,6 +13,7 @@ export class IntroductionComponent implements OnInit {
   @Input() url: string;
   @Input() link: string='Read more';
   @Input() imageUrl: string='https://webex.design/w.5ca20d3744316707.svg';   
+  @Input() imageDesc: string='';
 
   get backgroundImageUrl(): string {
     return `url('${this.imageUrl}')`;

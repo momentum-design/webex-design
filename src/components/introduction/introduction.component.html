@@ -1,5 +1,5 @@
 <div class="r">
-    <p *ngIf="date" class="date">{{date}}</p>
+    <p tabindex="2" *ngIf="date" class="date">{{date}}</p>
     <webex-description
         [primary]="title"
         [secondary]="description"
@@ -8,4 +8,4 @@
         className="card"
     ></webex-description>
 </div>
-<div class="l" [ngStyle]= "{'background-image': backgroundImageUrl }" ></div>
+<div class="l" [title]="imageDesc" tabindex="2" [ngStyle]= "{'background-image': backgroundImageUrl }" ></div>

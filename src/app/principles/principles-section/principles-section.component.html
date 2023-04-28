@@ -1,9 +1,9 @@
 
-<div [class]="getBgClass()"></div>
+<div tabindex="2" [class]="getBgClass()" [title]="data.alt"></div>
 <div class="textCon" *ngIf="data"  [style.marginLeft]="textMarginLeft">
-    <p class='primary' [innerHTML]="html(data.primary)" [style.color]="data.color"></p>
-    <p class='vs' [style.color]="data.color2">vs.<span [style.text-decoration-color]="data.color" [innerHTML]="html(data.vs)"></span></p>
-    <p class='secondary' *ngIf="data.secondary" [innerHTML]="html(data.secondary)"></p>
-    <p class='secondartDesc' *ngIf="data.secondartDesc" [innerHTML]="html(data.secondartDesc)"></p>
-    <p class='description' [innerHTML]="html(data.description)"></p>
+    <p tabindex="2" class='primary' [innerHTML]="html(data.primary)" [style.color]="data.color"></p>
+    <p tabindex="2" class='vs' [style.color]="data.color2">vs.<span [style.text-decoration-color]="data.color" [innerHTML]="html(data.vs)"></span></p>
+    <p tabindex="2" class='secondary' *ngIf="data.secondary" [innerHTML]="html(data.secondary)"></p>
+    <p tabindex="2" class='secondartDesc' *ngIf="data.secondartDesc" [innerHTML]="html(data.secondartDesc)"></p>
+    <p tabindex="2" class='description' [innerHTML]="html(data.description)"></p>
 </div>

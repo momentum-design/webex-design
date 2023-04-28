@@ -10,6 +10,7 @@ export type PrinciplesSectionDataItem = {
   title?:string;
   secondary?: string;
   secondartDesc?: string;
+  alt?: string;
 };
 
 @Component({
