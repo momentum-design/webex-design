@@ -1,14 +1,16 @@
 {
-	"Everyday heroes in action/0.md": {
-		"date": "March 20, 2023",
-		"title": "Everyday heroes in action",
-		"description": "A story of the heroes who work to make Webex more inclusive.",
-		"image": "0.png"
-	},
 	"The Next Normal: Webex AI Capabilities for Hybrid Work/0.md": {
 		"date": "January 19, 2023",
 		"title": "The Next Normal- Webex AI Capabilities for Hybrid Work",
 		"description": "It seems like every few months, we hear the term “new normal.” Given how much...",
-		"image": "0.png"
+		"image": "0.png",
+		"imageDesc": "The Next Normal- Webex AI Capabilities for Hybrid Work"
+	},
+	"Everyday heroes in action/0.md": {
+		"date": "March 20, 2023",
+		"title": "Everyday heroes in action",
+		"description": "A story of the heroes who work to make Webex more inclusive.",
+		"image": "0.png",
+		"imageDesc": "Man in a meeting with children running and playing"
 	}
 }

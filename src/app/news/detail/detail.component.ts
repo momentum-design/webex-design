@@ -11,15 +11,16 @@ let FILEPATH:string;
 let regImg = /<img\b[^>]*>/gi;
 const renderer = {
   image(href:string, title:string, text:string) {
-      console.log(href, ArticleHelper.getImageUrl(ArticleDIR.NEWS, FILEPATH, href));
       href = regHttp.test(href) ? href :  ArticleHelper.getImageUrl(ArticleDIR.NEWS, FILEPATH, href);
-      console.log(text);
-      return `<img src='${href}' alt='${title}'>`;
+      return `<img tabindex='2' src='${href}' alt='${text}' title='${text}'>`;
   },
   paragraph(text:string) {
     return regImg.test(text) ?
     `<div class='imgs'>${text}</div>`:
-    `<p>${text}</p>` ;
+    `<p tabindex="2">${text}</p>` ;
+  },
+  heading(text:string, level:string) {
+    return ` <h${level} tabindex="2">${text}</h${level}>`;
   }
 };
 

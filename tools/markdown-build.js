@@ -4,7 +4,7 @@ const path = require('path');
 
 class MarkdownBuild {
 
-    HeaderProps = ['date', 'title', 'description', 'image'];
+    HeaderProps = ['date', 'title', 'description', 'image', 'imageDesc'];
 
     ROOT =  path.resolve(__dirname, '../src/assets/articles');
     // ./news
