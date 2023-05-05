@@ -21,6 +21,8 @@ export class HeaderComponent implements AfterViewInit  {
   public title: string = '';
 
   @ViewChild('menu') menu: ElementRef;
+  @ViewChild('nav_con') nav_con: ElementRef;
+  @ViewChild('menu_btn') menu_btn: ElementRef;
   @ViewChild('menu_title') menu_title: ElementRef;
   @ViewChild('menu_btn_path_1') menu_btn_path_1: ElementRef;
   @ViewChild('menu_btn_path_2') menu_btn_path_2: ElementRef;
@@ -54,6 +56,10 @@ export class HeaderComponent implements AfterViewInit  {
     e.stopPropagation();
   }
 
+  getNavTabIndex() {
+    return this.isShowMenu? 2 : 1;
+  }
+
   private initNav() {
     this.navs = this.router.config.filter((cfg)=>{
       return cfg.data && typeof cfg.data.navIndex === 'number';
@@ -75,6 +81,7 @@ export class HeaderComponent implements AfterViewInit  {
     this.isShowMenu = false;
     this.motion.stop();
     this.motion.reverse();
+    this.menu_btn.nativeElement.focus();
   }
 
   private openMenu() {
@@ -88,6 +95,22 @@ export class HeaderComponent implements AfterViewInit  {
       this.closeMenu();
     }
     e.stopPropagation();
+  }
+
+  tabFirst(e:any) {
+    if(this.isShowMenu) {
+      this.nav_con.nativeElement.querySelector('a').focus();
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }
+
+  tabNext(e:any, index: number) {
+    if(index === this.navs.length-1) {
+      this.menu_btn.nativeElement.focus();
+      e.stopPropagation();
+      e.preventDefault();
+    }
   }
 
   private initMotion() {

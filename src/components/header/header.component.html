@@ -1,13 +1,18 @@
 <div class="menu" #menu (click)="hideMenum($event)">
-    <div class="nav">
-        <a *ngFor="let nav of navs" [routerLink]="nav.path" routerLinkActive="active">{{nav.name}}</a>
+    <div class="nav" #nav_con  role="presentation">
+        <a (tabindex)="getNavTabIndex()"  *ngFor="let nav of navs;let i = index;" (keydown.tab)="tabNext($event, i)" (keydown.esc)="clickMenu($event)" [routerLink]="nav.path" routerLinkActive="active">{{nav.name}}</a>
     </div>
 </div>
-<div class="header" (click)="hideMenum($event)">
-    <a class="logo" routerLink="/" routerLinkActive="active"></a>
+<div class="header" (click)="hideMenum($event)" tabindex="1">
+    <a tabindex="1" class="logo" routerLink="/" routerLinkActive="active" 
+    aria-label="Webex design, home page"
+    title="Webex design, home page"></a>
     <span #menu_title>{{title}}</span>
-    <a class="menu_btn" (click)="clickMenu($event)" tabindex="1" title="switch menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a tabindex="1" #menu_btn class="menu_btn" 
+    (click)="clickMenu($event)" (keydown.enter)="clickMenu($event)" (keydown.tab)="tabFirst($event)"  
+    role="button" aria-label="switch navigation"
+    title="switch navigation">
+        <svg role="none" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path #menu_btn_path_1 d="M2 5 l10 0 l10 0" stroke='white' stroke-width='2'/>
             <path #menu_btn_path_2 d="M2 11 l10 0 l10 0" stroke='white' stroke-width='2'/>
             <path #menu_btn_path_3 d="M2 17 l10 0 l10 0" stroke='white' stroke-width='2'/>
