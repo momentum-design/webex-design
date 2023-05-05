@@ -14,6 +14,7 @@ export class DescriptionComponent {
     @Input() className: string='';
     @Input() url: string;
     @Input() link: string='';    
+    @Input() level: string='2'; 
 
     @ViewChild('container') container: ElementRef;
 
