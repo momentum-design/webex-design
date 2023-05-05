@@ -1,5 +1,5 @@
 <div class="r">
-    <p tabindex="2" *ngIf="date" class="date">{{date}}</p>
+    <p tabindex="2" *ngIf="date" class="date" role="document" [attr.aria-label]="date">{{date}}</p>
     <webex-description
         [primary]="title"
         [secondary]="description"
