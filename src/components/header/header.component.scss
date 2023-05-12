@@ -82,11 +82,14 @@ $nav-font-small: 3rem;
         background-clip:text;
         font-size: $nav-font;
         text-align: center;
-        text-transform: capitalize;
         cursor: pointer;
 
         &:hover {
             color: transparent!important;
+        }
+
+        &::first-letter {
+            text-transform: capitalize;
         }
     }
 

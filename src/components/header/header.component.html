@@ -7,7 +7,7 @@
     <a tabindex="1" class="logo" routerLink="/" routerLinkActive="active" 
     aria-label="Webex design, home page"
     title="Webex design, home page"></a>
-    <span #menu_title>{{title}}</span>
+    <span #menu_title [title]="title">{{title}}</span>
     <a tabindex="1" #menu_btn class="menu_btn" 
     (click)="clickMenu($event)" (keydown.enter)="clickMenu($event)" (keydown.tab)="tabFirst($event)"  
     role="button" aria-label="switch navigation"

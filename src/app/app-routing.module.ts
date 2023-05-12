@@ -23,7 +23,7 @@ const routes: Routes = [{
 },{
   path: 'what-is-new',
   loadChildren: () => import('./news/news.module').then(m => m.NewsModule),
-  // data: { navIndex: 3}
+  data: { navIndex: 7}
 },{
   path: '',
   loadChildren: () => import('./home/home.module').then(m => m.HomeModule),

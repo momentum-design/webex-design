@@ -5,7 +5,8 @@ import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [{
   path: '',
-  component: NewsComponent
+  redirectTo: 'detail/Everyday-heroes-in-action_0',
+  pathMatch: 'full'
 },{
   path: 'detail/:id',
   component: DetailComponent

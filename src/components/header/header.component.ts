@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import mframe from 'mframe';
 
 interface INav {
@@ -30,15 +31,23 @@ export class HeaderComponent implements AfterViewInit  {
 
   constructor(
     private viewContainerRef: ViewContainerRef,
-    private router: Router
+    private router: Router,
+    private titleService: Title
     ) {
     this.initNav();
     this.router.events.subscribe((event) => {
       if(event instanceof NavigationEnd) {
+        let titleArr=['Webex Design']
         this.title = (event.url.split('/')[1] || '').replace(/\-/g,' ');
+        if(this.title!=='') {
+          titleArr.push(`${this.title}`);
+        } else {
+          titleArr.push(`home`);
+        }
         if(this.isShowMenu) {
           this.closeMenu();
         }
+        this.titleService.setTitle(titleArr.join(', '));
       }
     });
   }
